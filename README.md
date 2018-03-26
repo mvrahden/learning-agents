@@ -1,4 +1,4 @@
-# Avoiding Agents
+<!-- # Avoiding Agents
 
 ## Rewards
 
@@ -21,4 +21,4 @@
 #### Implementational Limitations: Rewards
 
 - Due to identity-less environment scanning the detection-based Rewards are doomed to be either cumulative over all sensor-detections e.g. on detection of other agents or distinctive based on the rewards value.
-  - Solution: Give `WorldObjects` an identity and memorize the identity on detection in `SensedObject`.
+  - Solution: Give `WorldObjects` an identity and memorize the identity on detection in `SensedObject`. -->
