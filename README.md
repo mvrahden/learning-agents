@@ -1,5 +1,6 @@
-<!-- # Avoiding Agents
+# Learning Agents
 
+<!-- 
 ## Rewards
 
 #### Collision-based Rewards
