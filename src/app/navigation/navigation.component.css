@@ -1,0 +1,14 @@
+/* AppComponent's private CSS styles */
+#nav-bar-panel {
+  background-color: rgb(204, 204, 204);
+  padding: 0px;
+  margin: 0px;
+}
+
+mat-ink-bar > .mat-ink-bar {
+  background-color: rgb(0, 0, 0);
+}
+
+#app-content {
+  margin: 0 10px;
+}

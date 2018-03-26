@@ -1,0 +1,24 @@
+/* Master Styles */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+/* @import '~@angular/material/prebuilt-themes/indigo-pink.css'; */
+/* @import '~@angular/material/prebuilt-themes/pink-bluegrey.css'; */
+/* @import '~@angular/material/prebuilt-themes/purple-green.css'; */
+
+body {
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+  margin: 0px;
+  background-color: rgb(252, 252, 252);
+}
+
+mat-card {
+  width: 600px;
+  padding: 15px;
+  margin: 15px 0;
+}
+
+.button-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 15px 0;
+}
