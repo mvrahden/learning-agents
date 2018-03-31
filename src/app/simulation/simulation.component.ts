@@ -209,50 +209,37 @@ export class SimulationComponent implements OnInit {
   }
 
   private logSpecs() {
-    let body = JSON.stringify(this.specs);
-
-    $.post('http://localhost:8000/log/specs', { data: body }, (res) => {
-      console.log(res);
-    });
-
+    console.log("Specs-Log: ");
+    console.log(JSON.stringify(this.specs));
   }
 
   private logCollisionHistory(): void {
+    console.log("Collision History-Log: ");
     for (const i of this.collisionStats.collisionHistory.keys()) {
       let data = {};
       data['agentId'] = i.toString();
       data['collisionHistory'] = JSON.stringify(this.collisionStats.collisionHistory[i]);
-
-      let body = JSON.stringify(data);
-
-      $.post('http://localhost:8000/log/collision-history/', { data: body }, (res) => {
-        console.log(res);
-      });
+      
+      console.log(JSON.stringify(data));
     }
   }
 
   private logItemChangeHistory(): void {
+    console.log("Item Change History-Log: ");
     let data = {};
     data['itemChangeHistory'] = JSON.stringify(this.collisionStats.itemChangeHistory);
-
-    let body = JSON.stringify(data);
-
-    $.post('http://localhost:8000/log/item-history/', { data: body }, (res) => {
-      console.log(res);
-    });
+    
+    console.log(JSON.stringify(data));
   }
 
   private logAgentBrainState(): void {
+    console.log("Agent Brains-Log: ");
     for (const [i, agent] of this.world.getAgents().entries()) {
       let data = {};
       data['agentId'] = i.toString();
       data['brainState'] = JSON.stringify(agent.brain.toJSON());
 
-      let body = JSON.stringify(data);
-
-      $.post('http://localhost:8000/log/agent-brain-state/', { data: body }, (res) => {
-        console.log(res);
-      });
+      console.log(JSON.stringify(data));
     }
   }
 
