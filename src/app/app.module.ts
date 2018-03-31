@@ -12,8 +12,9 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { NavigationComponent } from './navigation/navigation.component';
 import { AboutComponent } from './about/about.component';
-import { DQNComponent } from './dqn-method/dqn-method.component';
+import { PretrainedComponent } from './pretrained/pretrained.component';
 import { SimulationComponent } from './simulation/simulation.component';
+import { DQNComponent } from './dqn-method/dqn-method.component';
 
 
 @NgModule({
@@ -30,8 +31,9 @@ import { SimulationComponent } from './simulation/simulation.component';
   declarations: [
     NavigationComponent,
     AboutComponent,
-    DQNComponent,
-    SimulationComponent
+    PretrainedComponent,
+    SimulationComponent,
+    DQNComponent
   ],
   providers: [],
   bootstrap: [NavigationComponent]

@@ -7,14 +7,20 @@ import { Component } from '@angular/core';
 })
 export class NavigationComponent {
   links = [{
-    label: 'Simulation',
-    route: '/simulation'
-  }, {
-    label: 'DQN-Method',
-    route: '/dqn-method'
-  }, {
-    label: 'About',
-    route: '/about'
-    }
-  ];
+      label: 'Pre-Trained',
+      route: '/pretrained'
+    }, {
+      label: 'Simulation',
+      route: '/simulation'
+    }, {
+      label: 'Explanation',
+      route: '/explanation'
+    }, {
+      label: 'DQN-Method',
+      route: '/dqn-method'
+    }, {
+      label: 'About',
+      route: '/about'
+      }
+    ];
 }
