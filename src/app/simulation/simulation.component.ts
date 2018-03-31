@@ -1,7 +1,6 @@
-import { WorldObject } from 'learning-agents-model/dist/components/WorldObject';
 import { Component, OnInit } from '@angular/core';
 
-import { World, Item, Wall, RLAgent } from 'learning-agents-model';
+import { World, WorldObject, Item, Wall, RLAgent } from 'learning-agents-model';
 
 import { Specs } from './utils/specs.utility';
 import { CollisionStats } from './utils/collision-stats.utility';

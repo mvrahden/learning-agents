@@ -6,8 +6,9 @@ import { SimulationComponent } from './simulation/simulation.component';
 import { DQNComponent } from './dqn-method/dqn-method.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/simulation', pathMatch: 'full' },
-  { path: 'simulation', component: SimulationComponent },
+  { path: '', redirectTo: '/#', pathMatch: 'full' },
+  { path: 'simulation', redirectTo: '/#', pathMatch: 'full' },
+  { path: '', component: SimulationComponent },
   { path: 'about', component: AboutComponent },
   { path: 'dqn-method', component: DQNComponent }
 ];
