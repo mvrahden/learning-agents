@@ -1,0 +1,57 @@
+#sim-control-panel, #chart-control-panel {
+  width: 100%;
+}
+
+.button-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 15px 0;
+}
+
+#chart-control-panel > .button-row {
+  display: flex;
+  align-items: right;
+  justify-content: flex-end;
+  margin-bottom: 5px;
+}
+
+table, td, th {
+  border: none;
+  border-collapse: collapse;
+}
+
+td, th {
+  padding: 10px 5px;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+
+table > tbody > tr > td {
+  align-content: center;
+  font-size: 14px;
+  font-weight: lighter;
+  line-height: 1.5;
+  border: 0;
+  border-radius: 0;
+}
+
+table > thead > tr > th {
+  align-content: center;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1.5;
+  border-bottom: 1px solid rgb(208, 208, 208);
+}
+
+table > tbody > tr:hover {
+  -webkit-transition: background-color .25s ease;
+  transition: background-color .25s ease;
+  background-color: rgb(242, 242, 242);
+}
+
+/* mat-card.reward-chart {
+  width: 600px;
+  height: 300px;
+} */

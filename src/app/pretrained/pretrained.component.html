@@ -1,0 +1,55 @@
+<mat-card id="simulation-panel">
+  <mat-card-header>
+    <mat-card-title>Simulation</mat-card-title>
+  </mat-card-header>
+  <div id="sim-control-panel">
+    <div id="sim-control-buttons">
+      <mat-button-toggle-group class="button-row">
+        <button mat-button color="primary" *ngIf="!isPaused" (click)="pause()">Pause</button>
+        <button mat-button color="warn" *ngIf="isPaused" (click)="start()">Run</button>
+      </mat-button-toggle-group>
+    </div>
+    <div id="sim-speed-buttons">
+      <mat-button-toggle-group class="button-row" value="{{simSpeedIndex}}">
+        <mat-button-toggle value="3" (click)="goMax()">Max</mat-button-toggle>
+        <mat-button-toggle value="2" (click)="goFast()">Fast</mat-button-toggle>
+        <mat-button-toggle value="1" (click)="goNormal()">Normal</mat-button-toggle>
+        <mat-button-toggle value="0" (click)="goSlow()">Slow</mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+  </div>
+  <canvas id="simulation" width="{{width}}" height="{{height}}"></canvas>
+  <div id="data-table">
+    <table width="100%" class="highlight">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>tot. green Items</th>
+          <th>tot. red Items</th>
+          <th>curr. green Items</th>
+          <th>curr. red Items</th>
+          <th>Walls</th>
+          <th>Agents</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let collision of collisionStats.collisions; let i = index" [attr.data-index]="i">
+          <td>{{i + 1}}</td>
+          <td>{{collision.totalItem0Collisions}}</td>
+          <td>{{collision.totalItem1Collisions}}</td>
+          <td>{{collision.item0Collisions}}</td>
+          <td>{{collision.item1Collisions}}</td>
+          <td>{{collision.wallDetectionReward | number: '3.2-2'}}</td>
+          <td>{{collision.agentDetectionReward | number: '3.2-2'}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div id="chart-control-panel">
+    <mat-button-toggle-group class="button-row">
+      <button mat-button color="accent" *ngIf="!isPausedPlotting" (click)="pausePlotting()">Pause Plotting</button>
+      <button mat-button color="warn" *ngIf="isPausedPlotting" (click)="pausePlotting()">Run Plotting</button>
+    </mat-button-toggle-group>
+    <div id="reward-chart" style="width:100%; height: 300px;"></div>
+  </div>
+</mat-card>
