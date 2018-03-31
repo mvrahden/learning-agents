@@ -80,8 +80,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 const routes = [
-    { path: '', redirectTo: '/simulation', pathMatch: 'full' },
-    { path: 'simulation', component: __WEBPACK_IMPORTED_MODULE_3__simulation_simulation_component__["a" /* SimulationComponent */] },
+    { path: '', redirectTo: '/#', pathMatch: 'full' },
+    { path: 'simulation', redirectTo: '/#', pathMatch: 'full' },
+    { path: '', component: __WEBPACK_IMPORTED_MODULE_3__simulation_simulation_component__["a" /* SimulationComponent */] },
     { path: 'about', component: __WEBPACK_IMPORTED_MODULE_2__about_about_component__["a" /* AboutComponent */] },
     { path: 'dqn-method', component: __WEBPACK_IMPORTED_MODULE_4__dqn_method_dqn_method_component__["a" /* DQNComponent */] }
 ];
@@ -278,15 +279,13 @@ module.exports = "<mat-card id=\"simulation-panel\">\n  <mat-card-header>\n    <
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SimulationComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_learning_agents_model_dist_components_WorldObject__ = __webpack_require__("./node_modules/learning-agents-model/dist/components/WorldObject.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_learning_agents_model_dist_components_WorldObject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_learning_agents_model_dist_components_WorldObject__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm2015/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_learning_agents_model__ = __webpack_require__("./node_modules/learning-agents-model/dist/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_learning_agents_model___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_learning_agents_model__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_specs_utility__ = __webpack_require__("./src/app/simulation/utils/specs.utility.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__utils_collision_stats_utility__ = __webpack_require__("./src/app/simulation/utils/collision-stats.utility.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__utils_canvas_utility__ = __webpack_require__("./src/app/simulation/utils/canvas.utility.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__utils_flot_charts__ = __webpack_require__("./src/app/simulation/utils/flot.charts.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm2015/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_learning_agents_model__ = __webpack_require__("./node_modules/learning-agents-model/dist/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_learning_agents_model___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_learning_agents_model__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_specs_utility__ = __webpack_require__("./src/app/simulation/utils/specs.utility.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_collision_stats_utility__ = __webpack_require__("./src/app/simulation/utils/collision-stats.utility.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__utils_canvas_utility__ = __webpack_require__("./src/app/simulation/utils/canvas.utility.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__utils_flot_charts__ = __webpack_require__("./src/app/simulation/utils/flot.charts.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -296,7 +295,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-
 
 
 
@@ -321,15 +319,15 @@ let SimulationComponent = class SimulationComponent {
         this.init();
     }
     init() {
-        this.world = new __WEBPACK_IMPORTED_MODULE_2_learning_agents_model__["World"](this.width, this.height, this.maxAgents, this.maxItems, this.trainingPeriod);
+        this.world = new __WEBPACK_IMPORTED_MODULE_1_learning_agents_model__["World"](this.width, this.height, this.maxAgents, this.maxItems, this.trainingPeriod);
         this.world.setBoundaryCondition('stable');
         this.specs = new Array();
         for (const [i, agent] of this.world.agents.entries()) {
-            this.specs.push(new __WEBPACK_IMPORTED_MODULE_3__utils_specs_utility__["a" /* Specs */](i + 1, agent));
+            this.specs.push(new __WEBPACK_IMPORTED_MODULE_2__utils_specs_utility__["a" /* Specs */](i + 1, agent));
         }
-        this.collisionStats = new __WEBPACK_IMPORTED_MODULE_4__utils_collision_stats_utility__["a" /* CollisionStats */](this.world.getAgents(), this.world.getItems());
-        this.canvas = new __WEBPACK_IMPORTED_MODULE_5__utils_canvas_utility__["a" /* CanvasUtility */]('simulation', document, this.width, this.height);
-        this.chart = new __WEBPACK_IMPORTED_MODULE_6__utils_flot_charts__["a" /* Flot */]('reward-chart', document, $, this.collisionStats);
+        this.collisionStats = new __WEBPACK_IMPORTED_MODULE_3__utils_collision_stats_utility__["a" /* CollisionStats */](this.world.getAgents(), this.world.getItems());
+        this.canvas = new __WEBPACK_IMPORTED_MODULE_4__utils_canvas_utility__["a" /* CanvasUtility */]('simulation', document, this.width, this.height);
+        this.chart = new __WEBPACK_IMPORTED_MODULE_5__utils_flot_charts__["a" /* Flot */]('reward-chart', document, $, this.collisionStats);
         this.isPaused = false;
         this.isPausedDrawing = false;
         this.isPausedPlotting = false;
@@ -490,7 +488,7 @@ let SimulationComponent = class SimulationComponent {
             if (this.valueAlternationTick % 2 === 0) {
                 values = [-1, 1, -1, -1];
             }
-            __WEBPACK_IMPORTED_MODULE_0_learning_agents_model_dist_components_WorldObject__["WorldObject"].setValues(values);
+            __WEBPACK_IMPORTED_MODULE_1_learning_agents_model__["WorldObject"].setValues(values);
         }
     }
     setValueAlternationInterval(milliseconds = 4630 * 1000) {
@@ -503,7 +501,7 @@ let SimulationComponent = class SimulationComponent {
                 const item1ofAgent0 = self.world.getAgents()[0].sensory.totalItem1Collisions;
                 const item0ofAgent1 = self.world.getAgents()[1].sensory.totalItem0Collisions;
                 const item1ofAgent1 = self.world.getAgents()[1].sensory.totalItem1Collisions;
-                console.log('[' + new Date().toISOString() + ']: Values: ' + __WEBPACK_IMPORTED_MODULE_0_learning_agents_model_dist_components_WorldObject__["WorldObject"].getValues() + '\t');
+                console.log('[' + new Date().toISOString() + ']: Values: ' + __WEBPACK_IMPORTED_MODULE_1_learning_agents_model__["WorldObject"].getValues() + '\t');
                 console.log('[' + new Date().toISOString() + ']: Agent 1: ' + item0ofAgent0 + ' vs. ' + item1ofAgent0);
                 console.log('[' + new Date().toISOString() + ']: Agent 2: ' + item0ofAgent1 + ' vs. ' + item1ofAgent1);
             };
@@ -512,7 +510,7 @@ let SimulationComponent = class SimulationComponent {
     }
 };
 SimulationComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["n" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'app-simulation',
         template: __webpack_require__("./src/app/simulation/simulation.component.html"),
         styles: [__webpack_require__("./src/app/simulation/simulation.component.css")]
