@@ -1,0 +1,13 @@
+/* app-about {
+  margin: 5px;
+  padding: 5px;
+}
+ */
+
+li{
+    margin-top: 10px;
+}
+
+li:first-child {
+    margin-top:0;
+}

@@ -13,6 +13,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { AboutComponent } from './about/about.component';
 import { PretrainedComponent } from './pretrained/pretrained.component';
 import { SimulationComponent } from './simulation/simulation.component';
+import { ExplanationComponent } from './explanation/explanation.component';
 import { DQNComponent } from './dqn-method/dqn-method.component';
 
 
@@ -31,6 +32,7 @@ import { DQNComponent } from './dqn-method/dqn-method.component';
     AboutComponent,
     PretrainedComponent,
     SimulationComponent,
+    ExplanationComponent,
     DQNComponent
   ],
   providers: [],
