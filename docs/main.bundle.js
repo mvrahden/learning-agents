@@ -359,9 +359,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 let PretrainedComponent = class PretrainedComponent extends __WEBPACK_IMPORTED_MODULE_1__viewcontrol_viewcontrol__["a" /* ViewControl */] {
     constructor() {
         super();
-        // "https://raw.githubusercontent.com/mvrahden/learning-agents/master/src/app/pretrained/brains/agent-brain-state.0.json"
-        this.baseUrl = "https://raw.githubusercontent.com/mvrahden/learning-agents"
-            + "/master/src/app/pretrained/brains/agent-brain-state.";
+        this.baseUrl = "https://rawgit.com/mvrahden/learning-agents/master/src/app/pretrained/brains/agent-brain-state.";
         this.loadedBrainCounter = 0;
         this.isFullyLoaded = false;
     }
@@ -391,7 +389,7 @@ let PretrainedComponent = class PretrainedComponent extends __WEBPACK_IMPORTED_M
             const request = this.getHttpRequestFor(id);
             const self = this;
             const promise = new Promise((resolve, reject) => {
-                $.getJSON(request).done((data) => {
+                $.ajax(request).done((data) => {
                     self.resolve(id, data);
                 }).fail((jqxhr, textStatus, error) => {
                     self.reject(id, jqxhr, textStatus, error);
@@ -422,8 +420,11 @@ let PretrainedComponent = class PretrainedComponent extends __WEBPACK_IMPORTED_M
         return {
             type: 'GET',
             dataType: 'json',
-            contentType: 'application/json;charset=utf-8',
-            url: this.getUrlFor(id)
+            async: true,
+            url: this.getUrlFor(id),
+            xhrFields: {
+                withCredentials: false
+            }
         };
     }
     getUrlFor(id) {
