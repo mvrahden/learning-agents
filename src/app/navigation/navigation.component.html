@@ -1,12 +1,23 @@
-<nav mat-tab-nav-bar id="nav-bar-panel">
-  <a mat-tab-link
-    *ngFor="let link of links"
-    [routerLink]="link.route"
-    routerLinkActive #rla="routerLinkActive"
-    [active]="rla.isActive">
+<mat-toolbar color="primary" class="mat-elevation-z6">
+  <mat-toolbar-row>
+    <span class="mat-button-wrapper">
+      <img src="./assets/learning-agents-logo.png" class="button-logo">
+    </span>
+    <button 
+      mat-button
+      *ngFor="let link of links"
+      [routerLink]="link.route"
+      routerLinkActive #rla="routerLinkActive">
     {{link.label}}
-  </a>
-</nav>
-<div id="app-content">
+    </button>
+    <div class="flex-spacer"></div>
+    <span class="mat-button-wrapper">
+      <a mat-button href="https://github.com/mvrahden/learning-agents/">
+        <img src="./assets/github-circle-white-transparent.svg" class="button-logo">
+        GitHub</a>
+    </span>
+  </mat-toolbar-row>
+</mat-toolbar>
+<div id="app-content" style="position: relative;">
   <router-outlet></router-outlet>
 </div>

@@ -1,6 +1,6 @@
 /* Master Styles */
-@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
-/* @import '~@angular/material/prebuilt-themes/indigo-pink.css'; */
+/* @import '~@angular/material/prebuilt-themes/deeppurple-amber.css'; */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
 /* @import '~@angular/material/prebuilt-themes/pink-bluegrey.css'; */
 /* @import '~@angular/material/prebuilt-themes/purple-green.css'; */
 
@@ -10,10 +10,31 @@ body {
   background-color: rgb(252, 252, 252);
 }
 
+mat-cardapp-content {
+  margin: 0 10px;
+}
+
+mat-toolbar.second-toolbar {
+  z-index:0;
+  position:relative;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+mat-toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
+
 mat-card {
   width: 600px;
-  padding: 15px;
-  margin: 15px 0;
+  padding: auto 24px;
+  margin: 15px;
 }
 
 .button-row {
