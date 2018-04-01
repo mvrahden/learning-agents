@@ -112,18 +112,17 @@ AppRoutingModule = __decorate([
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm2015/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__("./node_modules/@angular/platform-browser/esm2015/platform-browser.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/esm2015/forms.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_material_toolbar__ = __webpack_require__("./node_modules/@angular/material/esm2015/toolbar.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_material_card__ = __webpack_require__("./node_modules/@angular/material/esm2015/card.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_material_button__ = __webpack_require__("./node_modules/@angular/material/esm2015/button.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_material_button_toggle__ = __webpack_require__("./node_modules/@angular/material/esm2015/button-toggle.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_routing_module__ = __webpack_require__("./src/app/app-routing.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__navigation_navigation_component__ = __webpack_require__("./src/app/navigation/navigation.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__about_about_component__ = __webpack_require__("./src/app/about/about.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pretrained_pretrained_component__ = __webpack_require__("./src/app/pretrained/pretrained.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__simulation_simulation_component__ = __webpack_require__("./src/app/simulation/simulation.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__explanation_explanation_component__ = __webpack_require__("./src/app/explanation/explanation.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__dqn_method_dqn_method_component__ = __webpack_require__("./src/app/dqn-method/dqn-method.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material_toolbar__ = __webpack_require__("./node_modules/@angular/material/esm2015/toolbar.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_material_card__ = __webpack_require__("./node_modules/@angular/material/esm2015/card.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_material_button__ = __webpack_require__("./node_modules/@angular/material/esm2015/button.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_material_button_toggle__ = __webpack_require__("./node_modules/@angular/material/esm2015/button-toggle.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_routing_module__ = __webpack_require__("./src/app/app-routing.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__navigation_navigation_component__ = __webpack_require__("./src/app/navigation/navigation.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__about_about_component__ = __webpack_require__("./src/app/about/about.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pretrained_pretrained_component__ = __webpack_require__("./src/app/pretrained/pretrained.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__simulation_simulation_component__ = __webpack_require__("./src/app/simulation/simulation.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__explanation_explanation_component__ = __webpack_require__("./src/app/explanation/explanation.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__dqn_method_dqn_method_component__ = __webpack_require__("./src/app/dqn-method/dqn-method.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -143,30 +142,28 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_material_toolbar__["a" /* MatToolbarModule */],
-            __WEBPACK_IMPORTED_MODULE_4__angular_material_card__["a" /* MatCardModule */],
-            __WEBPACK_IMPORTED_MODULE_5__angular_material_button__["a" /* MatButtonModule */],
-            __WEBPACK_IMPORTED_MODULE_6__angular_material_button_toggle__["a" /* MatButtonToggleModule */],
-            __WEBPACK_IMPORTED_MODULE_7__app_routing_module__["a" /* AppRoutingModule */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_material_toolbar__["a" /* MatToolbarModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_material_card__["a" /* MatCardModule */],
+            __WEBPACK_IMPORTED_MODULE_4__angular_material_button__["a" /* MatButtonModule */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_material_button_toggle__["a" /* MatButtonToggleModule */],
+            __WEBPACK_IMPORTED_MODULE_6__app_routing_module__["a" /* AppRoutingModule */],
         ],
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_8__navigation_navigation_component__["a" /* NavigationComponent */],
-            __WEBPACK_IMPORTED_MODULE_9__about_about_component__["a" /* AboutComponent */],
-            __WEBPACK_IMPORTED_MODULE_10__pretrained_pretrained_component__["a" /* PretrainedComponent */],
-            __WEBPACK_IMPORTED_MODULE_11__simulation_simulation_component__["a" /* SimulationComponent */],
-            __WEBPACK_IMPORTED_MODULE_12__explanation_explanation_component__["a" /* ExplanationComponent */],
-            __WEBPACK_IMPORTED_MODULE_13__dqn_method_dqn_method_component__["a" /* DQNComponent */]
+            __WEBPACK_IMPORTED_MODULE_7__navigation_navigation_component__["a" /* NavigationComponent */],
+            __WEBPACK_IMPORTED_MODULE_8__about_about_component__["a" /* AboutComponent */],
+            __WEBPACK_IMPORTED_MODULE_9__pretrained_pretrained_component__["a" /* PretrainedComponent */],
+            __WEBPACK_IMPORTED_MODULE_10__simulation_simulation_component__["a" /* SimulationComponent */],
+            __WEBPACK_IMPORTED_MODULE_11__explanation_explanation_component__["a" /* ExplanationComponent */],
+            __WEBPACK_IMPORTED_MODULE_12__dqn_method_dqn_method_component__["a" /* DQNComponent */]
         ],
         providers: [],
-        bootstrap: [__WEBPACK_IMPORTED_MODULE_8__navigation_navigation_component__["a" /* NavigationComponent */]]
+        bootstrap: [__WEBPACK_IMPORTED_MODULE_7__navigation_navigation_component__["a" /* NavigationComponent */]]
     })
 ], AppModule);
 
