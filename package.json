@@ -34,7 +34,6 @@
     "angular-in-memory-web-api": "~0.5.0",
     "core-js": "^2.4.1",
     "learning-agents-model": "git+https://github.com/mvrahden/learning-agents-model.git",
-    "reinforce-js": "^1.4.6",
     "rxjs": "^5.5.0",
     "web-animations-js": "^2.3.1",
     "zone.js": "^0.8.4"
