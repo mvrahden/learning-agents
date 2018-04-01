@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
@@ -20,7 +19,6 @@ import { DQNComponent } from './dqn-method/dqn-method.component';
 @NgModule({
   imports: [
     BrowserModule,
-    FormsModule,
     MatToolbarModule,
     MatCardModule,
     MatButtonModule,
