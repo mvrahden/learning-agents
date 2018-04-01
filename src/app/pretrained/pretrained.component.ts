@@ -12,9 +12,7 @@ declare let $: any;
   styleUrls: ['./pretrained.component.css']
 })
 export class PretrainedComponent extends ViewControl {
-  // "https://raw.githubusercontent.com/mvrahden/learning-agents/master/src/app/pretrained/brains/agent-brain-state.0.json"
-  readonly baseUrl: string = "https://raw.githubusercontent.com/mvrahden/learning-agents"
-                              + "/master/src/app/pretrained/brains/agent-brain-state.";
+  readonly baseUrl: string = "https://rawgit.com/mvrahden/learning-agents/master/src/app/pretrained/brains/agent-brain-state.";
   loadedBrainCounter: number = 0;
   isFullyLoaded = false;
 
@@ -51,7 +49,7 @@ export class PretrainedComponent extends ViewControl {
     const self = this;
 
     const promise = new Promise((resolve, reject) => {
-      $.getJSON(request).done((data) => {
+      $.ajax(request).done((data) => {
         self.resolve(id, data);
       }).fail((jqxhr, textStatus, error) => {
         self.reject(id, jqxhr, textStatus, error);
@@ -87,8 +85,11 @@ export class PretrainedComponent extends ViewControl {
     return {
       type: 'GET',
       dataType: 'json',
-      contentType: 'application/json;charset=utf-8',
-      url: this.getUrlFor(id)
+      async: true,
+      url: this.getUrlFor(id),
+      xhrFields: {
+        withCredentials: false
+      }
     };
   }
 
