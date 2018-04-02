@@ -32,7 +32,9 @@
       <p>
         In the <b>Pre-Trained</b>-Section you will find two pre-trained agents from a former simulation run.
         The <b>Simulation</b>-Section shows two freshly initialized agents, that are to be trained during a simulation run.
-        As it can be observed, the pre-trained agents are already pretty good at collecting the beneficial items (<font color="green">green</font>) and avoid the harmful ones (<font color="red">red</font>).
+        As it can be observed, the pre-trained agents are already pretty good in contrast to the freshly initialized agents at collecting the beneficial items (<font color="green">green</font>) and avoiding the harmful ones (<font color="red">red</font>).
+        The environment logic ensures that new items are spawned randomly, should an item be consumed by an agent.
+        This means, an item has a random type, a random location and a random speed.
       </p>
     </mat-expansion-panel>
     <mat-expansion-panel>
@@ -55,7 +57,7 @@
       </p>
       <p>
         In contrast the logic for the inference is located in the <a href="https://github.com/mvrahden/reinforce-js/"><b>reinforce-js</b></a> library.
-        This inference logic is based on the <b>DQN-Method</b> by <a href="https://www.nature.com/articles/nature14236"><i>Mnih et al. (2015)</i> - 'Human-level control through deep reinforcement learning'</a>, which itself is based on <b>neural networks</b> in combination with <b>reinforcement learning</b>.
+        This inference logic is based on the <b>DQN-Method</b> presented by <a href="https://www.nature.com/articles/nature14236"><i>Mnih et al. (2015)</i></a> in the research paper <i>"Human-level control through deep reinforcement learning"</i>, which itself is based on <b>neural networks</b> in combination with <b>reinforcement learning</b>.
         The <b>reinforce-js</b> library itself makes use of the <a href="https://github.com/mvrahden/recurrent-js/"><b>recurrent-js</b></a> library to generate and train the neural networks.
       </p>
     </mat-expansion-panel>
@@ -69,9 +71,11 @@
         </mat-panel-description>
       </mat-expansion-panel-header>
       <p>
-        The simulation sequence is configured according to the simulation process of the <a href="https://www.nature.com/articles/nature14236"><i>Mnih et al. (2015)</i> - 'Human-level control through deep reinforcement learning'</a> research paper.
+        The simulation sequence is configured according to the simulation process of the <a href="https://www.nature.com/articles/nature14236"><i>Mnih et al. (2015)</i> - "Human-level control through deep reinforcement learning"</a> research paper.
         It is split into two phases a first phase which we will call <b>Trainings Mode</b> and a second phase which we'll call <b>Evaluation Mode</b>.
         The trainings mode is automatically initialized as the simulation panel is opened.
+        It is a standardized mode which tries to provide equal training conditions for all simulations.
+        In this mode the item population is <u>actively controlled</u> to be somewhat evenly distributed.
         During this mode the agents inference mechanism is configured to <u>explore</u> their environments state space &ndash; meaning the agents will have a high but over time decaying degree of random navigation behaviors.
         This exploration vs. exploitation decay is linear over time, enforced via the hyperparameter configuration of the individual agents.
       </p>
@@ -184,6 +188,12 @@
               <td>0.05</td>
               <td style="text-align: left;">Static exploration during evaluation mode</td>
             </tr>
+            <tr>
+              <td></td>
+              <td><code>trainingMode</code></td>
+              <td>true</td>
+              <td style="text-align: left;">Toggle training and evaluation mode</td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -256,6 +266,78 @@
           </tbody>
         </table>
       </div>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <div style="width: 185px;">Simulation Results</div>
+        </mat-panel-title>
+        <mat-panel-description style="align-content: left;">
+          <div style="width: 300px;">Summary of Simulation Results</div>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <p>
+        The simulation in total endures 10 million iterations.
+        During the simulation several performance measures are captured.
+        For example as in figure 1. and 2. shown the development of the total consumption of items of both agents.
+        On the x-Axis one can find the number of iterations in millions.
+        On the y-Axis one can find the number of consumed items in thousands.
+      </p>
+      <mat-grid-list cols="2" rowHeight="55px">
+        <mat-grid-tile colspan="1" rowspan="4" style="align-content:center;">
+          <img src="./assets/showcase-eval-01-items.png">
+        </mat-grid-tile>
+        <mat-grid-tile colspan="1" rowspan="4" style="align-content:center;">
+          <img src="./assets/showcase-eval-02-items.png">
+        </mat-grid-tile>
+        <mat-grid-tile colspan="1" rowspan="1" style="text-align:center;">
+          <p>
+            Fig. 1.) Item consumption of agent 1 over time
+          </p>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="1" rowspan="1" style="text-align:center;">
+          <p>
+            Fig. 2.) Item consumption of agent 2 over time
+          </p>
+        </mat-grid-tile>
+      </mat-grid-list>
+      <p>
+        The colored lines represent the measurements under the environmental boundary condition of an actively <u>balanced</u> item population &ndash; meaning that the population is being consciously controlled to be balanced.
+        Whereas the dashed lines are representing the measurements under item <u>scarcity</u> (uncontrolled).
+        The higher the green line the better, the lower the red line the better.
+        One can observe that the performance of both agents regarding the avoidance of the harmful (<font color="red">red</font>) items is getting even better under the condition of scarcity.
+      </p>
+      <p>
+        Figure 3. and 4. present the measurements of the detection punishments in thousands for each agent.
+        It is clearly observable, that in all figures there is a learning curve.
+        The lower all lines the better.
+      </p>
+      <mat-grid-list cols="2" rowHeight="55px">
+        <mat-grid-tile colspan="1" rowspan="4" style="align-content:center;">
+          <img src="./assets/showcase-eval-01-agents-walls.png">
+        </mat-grid-tile>
+        <mat-grid-tile colspan="1" rowspan="4" style="align-content:center;">
+          <img src="./assets/showcase-eval-02-agents-walls.png">
+        </mat-grid-tile>
+        <mat-grid-tile colspan="1" rowspan="1" style="text-align:center;">
+          <p>
+            Fig. 1.) Detection punishments of agent 1 over time
+          </p>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="1" rowspan="1" style="text-align:center;">
+          <p>
+            Fig. 2.) Detection punishments of agent 2 over time
+          </p>
+        </mat-grid-tile>
+      </mat-grid-list>
+      <p>
+        Even here it is seen, that the learning under the scarcity condition is always outperforming the learning under controlled item population.
+        The explanation for this tendency is simple:
+        In the scarcity scenario, the population of the beneficial items instantaneously decreases to a very small amount.
+        This leads to an excessive exposure of the agents with harmful items, leading them to learn even better to avoid these kind of items.
+        Since now there are few beneficial items on the field and a lot of harmful items the agents are not experiencing a lot of rewards.
+        Hence, the agents can now distinguish even better the source of the rewards and punishments, leading them to also learn better to avoid wall detection.
+      </p>
     </mat-expansion-panel>
   </mat-card-content>
 </mat-card>
