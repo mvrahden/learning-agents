@@ -20,7 +20,7 @@
     </div>
     <div id="sim-speed-buttons">
       <mat-button-toggle-group class="button-row" value="{{simSpeedIndex}}">
-        <mat-button-toggle value="3" matTooltip="Depending on your systems CPU, this could be lagging. In this case, prefer 'Fast'." matTooltipPosition="right" (click)="goMax()">Max</mat-button-toggle>
+        <mat-button-toggle value="3" matTooltip="Depending on your systems CPU, the visualization could be lagging. In this case, prefer 'Fast'." matTooltipPosition="right" (click)="goMax()">Max</mat-button-toggle>
         <mat-button-toggle value="2" (click)="goFast()">Fast</mat-button-toggle>
         <mat-button-toggle value="1" (click)="goNormal()">Normal</mat-button-toggle>
         <mat-button-toggle value="0" (click)="goSlow()">Slow</mat-button-toggle>
