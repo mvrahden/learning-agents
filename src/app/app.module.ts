@@ -5,6 +5,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -23,6 +25,8 @@ import { DQNComponent } from './dqn-method/dqn-method.component';
     MatCardModule,
     MatButtonModule,
     MatButtonToggleModule,
+    MatTooltipModule,
+    NoopAnimationsModule,
     AppRoutingModule,
   ],
   declarations: [
