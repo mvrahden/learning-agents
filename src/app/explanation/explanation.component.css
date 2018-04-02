@@ -11,3 +11,38 @@ li{
 li:first-child {
     margin-top:0;
 }
+
+table, td, th {
+  border: none;
+  border-collapse: collapse;
+}
+
+td, th {
+  padding: 10px 5px;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+
+table > tbody > tr > td {
+  align-content: center;
+  font-size: 14px;
+  font-weight: lighter;
+  line-height: 1.5;
+  border: 0;
+  border-radius: 0;
+}
+
+table > thead > tr > th {
+  align-content: center;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1.5;
+  border-bottom: 1px solid rgb(208, 208, 208);
+}
+
+table > tbody > tr:hover {
+  -webkit-transition: background-color .25s ease;
+  transition: background-color .25s ease;
+  background-color: rgb(242, 242, 242);
+}
