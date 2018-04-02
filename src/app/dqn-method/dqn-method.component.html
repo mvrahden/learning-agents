@@ -26,38 +26,48 @@
       The construction of a solver requires instances of the Classes <code>DQNEnv</code> and <code>DQNOpt</code>.
       These instances provide all necessary information about the environment and the decision-making and learning of the Agent.
     </p>
-    <ul>
-      <li>
-        <strong>DQNEnv</strong> holds information about the environment.
-        <ul>
-          <li><code>numberOfStates</code> describes the length of the Vector (<strong>s</strong>) of observations</li>
-          <li><code>numberOfActions</code> describes the number of potential actions to choose from</li>
-        </ul>
-      </li>
-      <li>
-        <strong>DQNOpt</strong> holds all the hyperparamters for the <em>learning</em> and <em>decision making</em>.
-        <ul>
-          <li><code>numberOfHiddenUnits</code>: depth of the neural network</li>
-          <li><code>trainingMode</code>: mode of training, defines the explorative behaviour of the solver (decaying or stable)</li>
-          <li><code>epsilon</code>: static exploration rate (during non-training mode)</li>
-          <li><code>epsilonMax</code>, <code>epsilonMin</code>, <code>epsilonDecayPeriod</code>: linear decay of exploration during training mode</li>
-          <li><code>alpha</code>: discount factor for the network update</li>
-          <li><code>gamma</code>: discount factor for the bellmann function</li>
-          <li><code>doLossClipping</code>: controll flag for the clipping of the loss function during learning</li>
-          <li><code>lossClamp</code>: the size of the loss clipping</li>
-          <li><code>doRewardClipping</code>: controll flag for the clipping of the injected reward</li>
-          <li><code>rewardClamp</code>: the size of the reward clipping</li>
-          <li><code>experienceSize</code>: size of the replay memory</li>
-          <li><code>replayInterval</code>: interval of memory replay</li>
-          <li><code>replaySteps</code>: size of the replay sample</li>
-        </ul>
-      </li>
-    </ul>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <div style="width: 185px;">Hyperparameter</div>
+        </mat-panel-title>
+        <mat-panel-description style="align-content: left;">
+          <div style="width: 300px;">Description of the hyperparameter</div>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <ul>
+        <li>
+          <strong>DQNEnv</strong> holds information about the environment.
+          <ul>
+            <li><code>numberOfStates</code> describes the length of the Vector (<strong>s</strong>) of observations</li>
+            <li><code>numberOfActions</code> describes the number of potential actions to choose from</li>
+          </ul>
+        </li>
+        <li>
+          <strong>DQNOpt</strong> holds all the hyperparamters for the <em>learning</em> and <em>decision making</em>.
+          <ul>
+            <li><code>numberOfHiddenUnits</code>: amount of hidden units in the hidden layer of the neural network</li>
+            <li><code>trainingMode</code>: mode of training, defines the explorative behaviour of the solver (decaying or stable)</li>
+            <li><code>epsilon</code>: static exploration rate (during non-training mode)</li>
+            <li><code>epsilonMax</code>, <code>epsilonMin</code>, <code>epsilonDecayPeriod</code>: linear decay of exploration during training mode</li>
+            <li><code>alpha</code>: discount factor for the network update</li>
+            <li><code>gamma</code>: discount factor for the Bellmann function</li>
+            <li><code>doLossClipping</code>: controll flag for the clipping of the loss function during learning</li>
+            <li><code>lossClamp</code>: the size of the loss clipping</li>
+            <li><code>doRewardClipping</code>: controll flag for the clipping of the injected reward</li>
+            <li><code>rewardClamp</code>: the size of the reward clipping</li>
+            <li><code>experienceSize</code>: size of the replay memory</li>
+            <li><code>replayInterval</code>: interval of memory replay</li>
+            <li><code>replaySteps</code>: size of the replay sample</li>
+          </ul>
+        </li>
+      </ul>
+    </mat-expansion-panel>
     <h4>State-Action-Reward Scheme</h4>
     <p>
       The solver provides primarily two methods.
       The <code>decide</code>-method allows for the decision making and the <code>learn</code>-method enables the adaptive learning of the solver.
-      To decide upon an action the solver needs a vector (<code>s: Array&lt;number&gt;</code>) of current observations (states) an returns the <strong>index</strong> of the action (<code>a: number</code>) to be executed.
+      To decide upon an action the solver needs a vector (<code>s: Array&lt;number&gt;</code>) of current observations (states) and it then returns the <u>index</u> of the action (<code>a: number</code>) to be executed.
       After the action was executed the solver takes an integer reward (<code>r: number</code>) to <code>learn</code> from the effectivity of the action.
     </p>
     <p>
