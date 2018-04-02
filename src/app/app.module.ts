@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatTooltipModule } from '@angular/material/tooltip';
@@ -23,6 +24,7 @@ import { DQNComponent } from './dqn-method/dqn-method.component';
     BrowserModule,
     MatToolbarModule,
     MatCardModule,
+    MatExpansionModule,
     MatButtonModule,
     MatButtonToggleModule,
     MatTooltipModule,
