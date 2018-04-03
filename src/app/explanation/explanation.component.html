@@ -302,8 +302,8 @@
         </mat-grid-tile>
       </mat-grid-list>
       <p>
-        The colored lines represent the measurements under the environmental boundary condition of an actively <u>balanced</u> item population &ndash; meaning that the population is being consciously controlled to be balanced.
-        Whereas the dashed lines are representing the measurements under item <u>scarcity</u> (uncontrolled).
+        The colored lines represent the measurements under the environmental boundary condition of an actively <u>balanced</u> item population (as shown in figure 5) &ndash; meaning that the population is being consciously controlled to be balanced.
+        Whereas the dashed lines are representing the measurements under item <u>scarcity</u> (uncontrolled; as shown in figure 6).
         The higher the green line the better, the lower the red line the better.
         One can observe that the performance of both agents regarding the avoidance of the harmful (<font color="red">red</font>) items is getting even better under the condition of scarcity.
       </p>
@@ -321,12 +321,12 @@
         </mat-grid-tile>
         <mat-grid-tile colspan="1" rowspan="1" style="text-align:center;">
           <p>
-            Fig. 1.) Detection punishments of agent 1 over time
+            Fig. 3.) Detection punishments of agent 1 over time
           </p>
         </mat-grid-tile>
         <mat-grid-tile colspan="1" rowspan="1" style="text-align:center;">
           <p>
-            Fig. 2.) Detection punishments of agent 2 over time
+            Fig. 4.) Detection punishments of agent 2 over time
           </p>
         </mat-grid-tile>
       </mat-grid-list>
@@ -338,6 +338,24 @@
         Since now there are few beneficial items on the field and a lot of harmful items the agents are not experiencing a lot of rewards.
         Hence, the agents can now distinguish even better the source of the rewards and punishments, leading them to also learn better to avoid wall detection.
       </p>
+      <mat-grid-list cols="2" rowHeight="55px">
+        <mat-grid-tile colspan="1" rowspan="4" style="align-content:center;">
+          <img src="./assets/showcase-eval-stable.png">
+        </mat-grid-tile>
+        <mat-grid-tile colspan="1" rowspan="4" style="align-content:center;">
+          <img src="./assets/showcase-eval-scarce.png">
+        </mat-grid-tile>
+        <mat-grid-tile colspan="1" rowspan="1" style="text-align:center;">
+          <p>
+            Fig. 5.) Development of item population<br>over time under controlled
+          </p>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="1" rowspan="1" style="text-align:center;">
+          <p>
+            Fig. 6.) Development of item population<br>over time under scarcity
+          </p>
+        </mat-grid-tile>
+      </mat-grid-list>
     </mat-expansion-panel>
   </mat-card-content>
 </mat-card>
