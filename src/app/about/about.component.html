@@ -10,13 +10,21 @@
   </mat-card-header>
   <mat-card-content id="about-content">
     <p>
+      It is shown an environment which is an extended version of the "Waterworld" example of the Stanford University CS group &ndash; more specific by Andrej Karpathy.
+      You'll find multiple pages, each with different content.
+      <ol style="line-height: 1.15;">
+        <li><b>Pre-Trained</b>: This page shows two agents which were trained in a simulation run.</li>
+        <li><b>Simulation</b>: The simulation environment offers the ability to run individual simulations.</li>
+        <li><b>Explanation</b>: This page offers explanatory content regarding the logics and technical background of the simulation.</li>
+        <li><b>DQN-Method</b>: This page offers even more insight into how the agents inference mechanism, namely the DQN-Method, is implemented.</li>
+        <li><b>About</b>: This page offers an overview of the Dependencies of this project.</li>
+      </ol>
       The content of this website is for educational purposes only.
-      It is inspired by the Stanford <a href="http://cs.stanford.edu/people/karpathy/reinforcejs/waterworld.html">"Waterworld"</a> example of Andrej Karpathy, which as well is MIT licensed.
     </p>
     <p>
       This project shows the simulation environment, the gained pre-trained agents, an explanation of the whole simulation and project construction, hyperparameters and the presentation of the simulation results.
       It is also shown how the DQN-Method is working in principle.
-      For seeing the source code of all dependent project modules please see the following section "Dependencies".
+      To make yourself an impression the source code of all dependent project modules please see the following section "Dependencies".
     </p>
   </mat-card-content>
 </mat-card>
@@ -28,19 +36,20 @@
     <ol style="line-height: 1.15;">
       <li>
         <a href="https://github.com/mvrahden/learning-agents"><b>Learning Agents</b></a>
-              &ndash; Implementation of the Simulation Control and Frontend
+              &ndash; Implementation of the Simulation Flow Control and the Frontend View
       </li>
       <li>
         <a href="https://github.com/mvrahden/learning-agents-model"><b>Learning Agents Model</b></a>
-              &ndash; Implementation of World Objects
+              &ndash; Implementation of the entities and their individual logics involved in the Simulation
       </li>
       <li>
         <a href="https://github.com/mvrahden/reinforce-js"><b>reinforce-js</b></a>
-              &ndash; Implementation of Deep-Q-Solver
+              &ndash; Implementation of the DQN-Solver (available via <a href="https://www.npmjs.com/package/reinforce-js">&#64;npm</a>)
       </li>
       <li>
         <a href="https://github.com/mvrahden/recurrent-js"><b>recurrent-js</b></a>
-              &ndash; Implementation of Graph Model, Matrix-Operations and Neural Network Structure
+              &ndash; Implementation of neural networks graph model and matrix operations (available via
+              <a href="https://www.npmjs.com/package/recurrent-js">&#64;npm</a>)
       </li>
       <li>
         <a href="https://angular.io/"><b>Angular</b></a>
