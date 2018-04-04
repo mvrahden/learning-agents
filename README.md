@@ -1,25 +1,55 @@
 # Learning Agents
 
-<!-- 
-## Rewards
+The content of this repository can be viewed on its [GitHub page](https://mvrahden.github.io/learning-agents).
+It is shown an environment which is an extended version of the "Waterworld" example of the Stanford University CS group - more specific by Andrej Karpathy.
+You'll find multiple pages, each with different content.
 
-#### Collision-based Rewards
+- **Pre-Trained**: This page shows two agents which were trained in a simulation run.
+- **Simulation**: The simulation environment offers the ability to run individual simulations.
+- **Explanation**: This page offers explanatory content regarding the logics and technical background of the simulation.
+- **DQN-Method**: This page offers even more insight into how the agents inference mechanism, namely the DQN-Method, is implemented.
+- **About**: This page offers an overview of the Dependencies of this project.
 
-* Items: Single Reward on Collision (`+1` or `-1`)
+The content of this Website is for educational purposes only.
 
-#### Detection-based Rewards
+## Local Installation
 
-* Agents: Cumulative linear increasing Punishment based on Distance (`0` to `-1`)
-* Walls: Distinctive exponential increasing Punishment based on Distance (`0` to `-1`)
+To run the code on a local machine please follow the listed steps:
 
-## Limitations
+### Pre-Setup
 
-#### Conceptual Limitations: Exploration and Learning
+1. Install NodeJS, NPM (ships with NodeJS) & git (if not done yet)
+  - please follow the steps on their respictive website [node, npm](https://www.nodejs.org) & [git](https://git-scm.com/) or in any given Web-Tutorial
 
-- Exploration-based inefficiency: Fixed Epsilon limits the agents ability to exploit optimal strategies when reached an optimal solution space.
-- Missing feature *wisdom of old age*: Continuous learning doesn't let the agent get immune to false signals.
+2. Install Typescript & Angular CLI as global dependencies
+  - please follow the following steps in your command line (or the steps on their respective websites)
 
-#### Implementational Limitations: Rewards
+```
+npm install -g typescript @angular/cli
+```
 
-- Due to identity-less environment scanning the detection-based Rewards are doomed to be either cumulative over all sensor-detections e.g. on detection of other agents or distinctive based on the rewards value.
-  - Solution: Give `WorldObjects` an identity and memorize the identity on detection in `SensedObject`. -->
+### Actual Installation
+
+3. In your command line change into a target directory and clone the code via `git` into this directory
+
+```
+git clone https://github.com/mvrahden/learning-agents.git
+```
+
+4. Change into the newly created directory `cd learning-agents`
+5. Install all project related dependencies via `npm install`
+6. Run the code via the Angular CLI `ng serve --open`
+  - this should open a new tab in your configured web browser
+
+## Dependencies
+
+1. [Learning Agents](https://github.com/mvrahden/learning-agents): Implementation of the Simulation Flow Control and the Frontend View
+2. [Learning Agents Model](https://github.com/mvrahden/learning-agents-model): Implementation of the Entities involved in the Simulation
+3. [reinforce-js](https://github.com/mvrahden/reinforce-js): Implementation of the DQN-Solver (also available via [NPM](https://www.npmjs.com/package/reinforce-js))
+4. [recurrent-js](https://github.com/mvrahden/recurrent-js): Implementation of neural networks graph model and matrix operations (also available via [NPM](https://www.npmjs.com/package/recurrent-js))
+5. [Angular](https://angular.io): Mobile & Desktop Frontend Framework
+6. [Angular Material](https://material.angular.io): Material Design Components for the Angular Frontend Framework
+
+## License
+
+As of License-File: [MIT](LICENSE)
