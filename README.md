@@ -41,6 +41,14 @@ git clone https://github.com/mvrahden/learning-agents.git
 6. Run the code via the Angular CLI `ng serve --open`
   - this should open a new tab in your configured web browser
 
+### Update the GitHub Page
+
+1. `ng build` the current code base.
+2. replace the compiled JavaScript bundles from the `./docs` directory with the created ones from the `./dist` directory. 
+3. in case of modified `assets`, also move those assets into the `./docs/assets` directory.
+4. delete the `./dist` directory again
+5. `git commit` and `git push`
+
 ## Dependencies
 
 1. [Learning Agents](https://github.com/mvrahden/learning-agents): Implementation of the Simulation Flow Control and the Frontend View
