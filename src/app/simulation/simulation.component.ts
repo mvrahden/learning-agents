@@ -41,8 +41,8 @@ export class SimulationComponent extends ViewControl {
   }
 
   private activateCurrentEnvironmentSetup(): void {
-    this.setValueAlternationInterval(); // deactivate on static valuation
-    this.world.setBoundaryCondition('scarce'); // other option: 'scarce'
+    // this.setValueAlternationInterval(); // uncomment this for changing valuations
+    this.world.setBoundaryCondition('scarce'); // options: 'stable' or 'scarce'
   }
 
 
