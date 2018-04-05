@@ -1,6 +1,6 @@
 {
   "name": "learning-agents",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "Visualization of multiple Reinforcement Learning Agents.",
   "scripts": {
     "ng": "ng",
