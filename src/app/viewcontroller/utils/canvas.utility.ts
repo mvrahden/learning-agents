@@ -1,6 +1,6 @@
 import { World, Item, Wall, RLAgent, SensedObject, Point2D, Lidar, Radar } from 'learning-agents-model';
 
-export class CanvasUtility {
+export class Canvas {
 
   agentView: boolean = false;
 

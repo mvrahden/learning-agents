@@ -1,6 +1,6 @@
 import { Stats } from "./stats.utility";
 
-export class Flot {
+export class Chart {
   stats: Stats;
 
   private container: any;

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { World } from 'learning-agents-model';
 
-import { ViewControl } from '../viewcontrol/viewcontrol';
+import { ViewController } from '../viewcontroller/viewcontroller';
 
 declare let $: any;
 
@@ -11,7 +11,7 @@ declare let $: any;
   templateUrl: './pretrained.component.html',
   styleUrls: ['./pretrained.component.css']
 })
-export class PretrainedComponent extends ViewControl {
+export class PretrainedComponent extends ViewController {
   readonly baseUrl: string = "https://rawgit.com/mvrahden/learning-agents/master/src/app/pretrained/brains/agent-brain-state.";
   loadedBrainCounter: number = 0;
   isFullyLoaded = false;

@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 
 import { WorldObject } from 'learning-agents-model';
 
-import { ViewControl } from '../viewcontrol/viewcontrol';
+import { Specs } from './utils/specs.utility';
+
+import { ViewController } from '../viewcontroller/viewcontroller';
 
 declare let setInterval: any;
 
@@ -11,9 +13,11 @@ declare let setInterval: any;
   templateUrl: './simulation.component.html',
   styleUrls: ['./simulation.component.css']
 })
-export class SimulationComponent extends ViewControl {
+export class SimulationComponent extends ViewController {
 
   trainingPeriod: any = 2.5e6;
+
+  specs: Array<Specs>;
   
   // Simulation and Controls
   valueAlternationTick: number = 0;
@@ -23,7 +27,12 @@ export class SimulationComponent extends ViewControl {
     super();
   }
   
-  protected initConcrete(): void { }
+  protected initConcrete(): void {
+    this.specs = new Array<Specs>();
+    for (const [i, agent] of this.world.agents.entries()) {
+      this.specs.push(new Specs(i + 1, agent));
+    }
+  }
 
   protected handleEvaluationPeriodActivation(): void {
     if (this.world.clock() === this.trainingPeriod) {

@@ -2,20 +2,18 @@ import { OnInit } from '@angular/core';
 
 import { World } from 'learning-agents-model';
 
-import { Specs } from './utils/specs.utility';
 import { Stats } from './utils/stats.utility';
-import { CanvasUtility } from './utils/canvas.utility';
-import { Flot } from './utils/flot.charts';
+import { Chart } from './utils/chart.utility';
+import { Canvas } from './utils/canvas.utility';
 
 declare let $: any;
 declare let window: any;
 declare let document: any;
 declare let setInterval: any;
 
-export abstract class ViewControl implements OnInit {
+export abstract class ViewController implements OnInit {
   
   // derived from globals
-  canvas: any;
   
   // World and View
   world: World;
@@ -37,9 +35,9 @@ export abstract class ViewControl implements OnInit {
   simEvaluationIntervalId: number;
 
   // Evaluation Utils
-  specs: Array<Specs>;
   stats: Stats;
-  chart: Flot;
+  chart: Chart;
+  canvas: Canvas;
 
   constructor() { }
 
@@ -53,13 +51,9 @@ export abstract class ViewControl implements OnInit {
   private init(): void {
     this.world = new World(this.width, this.height, this.maxAgents, this.maxItems);
     this.world.setBoundaryCondition('stable');
-    this.specs = new Array<Specs>();
-    for (const [i, agent] of this.world.agents.entries()) {
-      this.specs.push(new Specs(i + 1, agent));
-    }
     this.stats = new Stats(this.world.getAgents(), this.world.getItems());
-    this.canvas = new CanvasUtility('simulation', document, this.width, this.height);
-    this.chart = new Flot('reward-chart', document, $, this.stats);
+    this.canvas = new Canvas('simulation', document, this.width, this.height);
+    this.chart = new Chart('reward-chart', document, $, this.stats);
     this.isPaused = false;
     this.isPausedDrawing = false;
     this.isPausedPlotting = false;
