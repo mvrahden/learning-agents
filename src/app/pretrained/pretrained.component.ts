@@ -20,6 +20,16 @@ export class PretrainedComponent extends ViewController {
     super();
   }
 
+  private reload(): void {
+    this.initConcrete();
+  }
+
+  protected logStartMessage() {
+    console.log('[' + new Date().toISOString() + ']: Evaluation of Agent is starting!'
+      + '\nStarting evaluation phase!'
+      + '\nCurrent Timestamp: ' + new Date().getTime());
+  }
+
   protected initConcrete(): void {
     this.loadedBrainCounter = 0;
     this.isFullyLoaded = false;
@@ -29,10 +39,6 @@ export class PretrainedComponent extends ViewController {
 
   private switchAgentsToEvaluationMode(): void {
     this.world.switchTrainingModeOfAgents(false);
-  }
-
-  private reload(): void {
-    this.initConcrete();
   }
 
   private async loadBrains(): Promise<any> {

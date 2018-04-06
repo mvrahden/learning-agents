@@ -62,12 +62,16 @@ export abstract class ViewController implements OnInit {
   protected abstract initConcrete(): void;
   
   public start(): void {
-    console.log('[' + new Date().toISOString() + ']: Training of Agent is starting!'
-      + '\nStarting training phase!'
-      + '\nCurrent Timestamp: ' + new Date().getTime())
+    this.logStartMessage();
     this.isPaused = false;
     this.setSimulationInterval(this.simSpeedIndex);
     this.setEvaluationInterval();
+  }
+
+  protected logStartMessage() {
+    console.log('[' + new Date().toISOString() + ']: Training of Agent is starting!'
+      + '\nStarting training phase!'
+      + '\nCurrent Timestamp: ' + new Date().getTime());
   }
 
   public pause(): void {
