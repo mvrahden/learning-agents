@@ -27,7 +27,7 @@ module.exports = "/* app-about {\n  margin: 5px;\n  padding: 5px;\n}\n */\n\nli{
 /***/ "./src/app/about/about.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<mat-toolbar color=\"primary\" class=\"second-toolbar\">\n  <mat-toolbar-row></mat-toolbar-row>\n  <mat-toolbar-row>\n    <h1>About</h1>\n  </mat-toolbar-row>\n</mat-toolbar>\n<mat-card id=\"about-panel\">\n  <mat-card-header>\n    <mat-card-title>About</mat-card-title>\n  </mat-card-header>\n  <mat-card-content id=\"about-content\">\n    <p>\n      It is shown an environment which is an extended version of the \"Waterworld\" example of the Stanford University CS group &ndash; more specific by Andrej Karpathy.\n      You'll find multiple pages, each with different content.\n    </p>\n      <ol style=\"line-height: 1.15;\">\n        <li><b>Pre-Trained</b>: This page shows two agents which were trained in a simulation run.</li>\n        <li><b>Simulation</b>: The simulation environment offers the ability to run individual simulations.</li>\n        <li><b>Explanation</b>: This page offers explanatory content regarding the logics and technical background of the simulation.</li>\n        <li><b>DQN-Method</b>: This page offers even more insight into how the agents inference mechanism, namely the DQN-Method, is implemented.</li>\n        <li><b>About</b>: This page offers an overview of the Dependencies of this project.</li>\n      </ol>\n    <p>\n      The content of this website is for educational purposes only.\n    </p>\n    <p>\n      This project shows the simulation environment, the gained pre-trained agents, an explanation of the whole simulation and project construction, hyperparameters and the presentation of the simulation results.\n      It is also shown how the DQN-Method is working in principle.\n      To make yourself an impression the source code of all dependent project modules please see the following section \"Dependencies\".\n    </p>\n  </mat-card-content>\n</mat-card>\n<mat-card id=\"license-panel\">\n  <mat-card-header>\n    <mat-card-title>Dependencies</mat-card-title>\n  </mat-card-header>\n  <mat-card-content id=\"about-content\">\n    <ol style=\"line-height: 1.15;\">\n      <li>\n        <a href=\"https://github.com/mvrahden/learning-agents\"><b>Learning Agents</b></a>\n              &ndash; Implementation of the Simulation Flow Control and the Frontend View\n      </li>\n      <li>\n        <a href=\"https://github.com/mvrahden/learning-agents-model\"><b>Learning Agents Model</b></a>\n              &ndash; Implementation of the entities and their individual logics involved in the Simulation\n      </li>\n      <li>\n        <a href=\"https://github.com/mvrahden/reinforce-js\"><b>reinforce-js</b></a>\n              &ndash; Implementation of the DQN-Solver (available via <a href=\"https://www.npmjs.com/package/reinforce-js\">&#64;npm</a>)\n      </li>\n      <li>\n        <a href=\"https://github.com/mvrahden/recurrent-js\"><b>recurrent-js</b></a>\n              &ndash; Implementation of neural networks graph model and matrix operations (available via\n              <a href=\"https://www.npmjs.com/package/recurrent-js\">&#64;npm</a>)\n      </li>\n      <li>\n        <a href=\"https://angular.io/\"><b>Angular</b></a>\n              &ndash; Mobile &amp; Desktop Frontend Framework\n      </li>\n      <li>\n        <a href=\"https://material.angular.io/\"><b>Angular Material</b></a>\n              &ndash; Material Design Components for the Angular Frontend Framework\n      </li>\n    </ol>\n  </mat-card-content>\n</mat-card>\n<mat-card id=\"license-panel\">\n  <mat-card-header>\n    <mat-card-title>License</mat-card-title>\n  </mat-card-header>\n  <mat-card-content id=\"about-content\" style=\"text-align:justify\">\n    <p>\n      The MIT License Copyright (c) 2017 Menno van Rahden\n    </p>\n    <p>\n      Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation\n      files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy,\n      modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software\n      is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be\n      included in all copies or substantial portions of the Software.\n    </p>\n    <p>\n      THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES\n      OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS\n      BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT\n      OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n    </p>\n  </mat-card-content>\n</mat-card>\n"
+module.exports = "<mat-toolbar color=\"primary\" class=\"second-toolbar\">\n  <mat-toolbar-row></mat-toolbar-row>\n  <mat-toolbar-row>\n    <h1>About</h1>\n  </mat-toolbar-row>\n</mat-toolbar>\n<mat-card id=\"about-panel\">\n  <mat-card-header>\n    <mat-card-title>About</mat-card-title>\n  </mat-card-header>\n  <mat-card-content id=\"about-content\">\n    <p>\n      It is shown an environment which is an extended version of the \"Waterworld\" example of the Stanford University CS group &ndash; more specific by Andrej Karpathy.\n      You'll find multiple pages, each with different content.\n    </p>\n    <ol style=\"line-height: 1.15;\">\n      <li><b>Pre-Trained</b>: This page shows two agents which were trained in a simulation run.</li>\n      <li><b>Simulation</b>: The simulation environment offers the ability to run individual simulations.</li>\n      <li><b>Explanation</b>: This page offers explanatory content regarding the logics and technical background of the simulation.</li>\n      <li><b>DQN-Method</b>: This page offers even more insight into how the agents inference mechanism, namely the DQN-Method, is implemented.</li>\n      <li><b>About</b>: This page offers an overview of the Dependencies of this project.</li>\n    </ol>\n    <p>\n      The content of this website is for educational purposes only.\n    </p>\n    <p>\n      This project shows the simulation environment, the gained pre-trained agents, an explanation of the whole simulation and project construction, hyperparameters and the presentation of the simulation results.\n      It is also shown how the DQN-Method is working in principle.\n      To make yourself an impression the source code of all dependent project modules please see the following section \"Dependencies\".\n    </p>\n  </mat-card-content>\n</mat-card>\n<mat-card id=\"license-panel\">\n  <mat-card-header>\n    <mat-card-title>Dependencies</mat-card-title>\n  </mat-card-header>\n  <mat-card-content id=\"about-content\">\n    <ol style=\"line-height: 1.15;\">\n      <li>\n        <a href=\"https://github.com/mvrahden/learning-agents\"><b>Learning Agents</b></a>\n              &ndash; Implementation of the Simulation Flow Control and the Frontend View\n      </li>\n      <li>\n        <a href=\"https://github.com/mvrahden/learning-agents-model\"><b>Learning Agents Model</b></a>\n              &ndash; Implementation of the entities and their individual logics involved in the Simulation\n      </li>\n      <li>\n        <a href=\"https://github.com/mvrahden/reinforce-js\"><b>reinforce-js</b></a>\n              &ndash; Implementation of the DQN-Solver (available via <a href=\"https://www.npmjs.com/package/reinforce-js\">&#64;npm</a>)\n      </li>\n      <li>\n        <a href=\"https://github.com/mvrahden/recurrent-js\"><b>recurrent-js</b></a>\n              &ndash; Implementation of neural networks graph model and matrix operations (available via\n              <a href=\"https://www.npmjs.com/package/recurrent-js\">&#64;npm</a>)\n      </li>\n      <li>\n        <a href=\"https://angular.io/\"><b>Angular</b></a>\n              &ndash; Mobile &amp; Desktop Frontend Framework\n      </li>\n      <li>\n        <a href=\"https://material.angular.io/\"><b>Angular Material</b></a>\n              &ndash; Material Design Components for the Angular Frontend Framework\n      </li>\n    </ol>\n  </mat-card-content>\n</mat-card>\n<mat-card id=\"license-panel\">\n  <mat-card-header>\n    <mat-card-title>License</mat-card-title>\n  </mat-card-header>\n  <mat-card-content id=\"about-content\" style=\"text-align:justify\">\n    <p>\n      The MIT License Copyright (c) 2017 Menno van Rahden\n    </p>\n    <p>\n      Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation\n      files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy,\n      modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software\n      is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be\n      included in all copies or substantial portions of the Software.\n    </p>\n    <p>\n      THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES\n      OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS\n      BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT\n      OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n    </p>\n  </mat-card-content>\n</mat-card>\n"
 
 /***/ }),
 
@@ -335,7 +335,7 @@ module.exports = "#sim-control-panel, #chart-control-panel {\n  width: 100%;\n}\
 /***/ "./src/app/pretrained/pretrained.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<mat-toolbar color=\"primary\" class=\"second-toolbar\">\n  <mat-toolbar-row></mat-toolbar-row>\n  <mat-toolbar-row>\n    <h1>Pre-trained Agents</h1>\n  </mat-toolbar-row>\n</mat-toolbar>\n<mat-card>\n  <mat-card-header>\n    <mat-card-title>Simulation</mat-card-title>\n  </mat-card-header>\n  <div id=\"sim-control-panel\">\n    <div id=\"sim-control-buttons\">\n      <mat-button-toggle-group class=\"button-row\">\n        <button mat-button color=\"primary\" *ngIf=\"!isPaused\" (click)=\"pause()\">Pause</button>\n        <button mat-button color=\"warn\" *ngIf=\"isPaused\" (click)=\"start()\">Run</button>\n        <button mat-button matTooltip=\"Click to reload the brains from GitHub.\" matTooltipPosition=\"before\" color=\"warn\" *ngIf=\"!isFullyLoaded\" (click)=\"reload()\">Brains didn't load!</button>\n        <button mat-button matTooltip=\"Click to reload the brains from GitHub.\" matTooltipPosition=\"before\" color=\"primary\" *ngIf=\"isFullyLoaded\" (click)=\"reload()\">Brains are loaded</button>\n      </mat-button-toggle-group>\n    </div>\n    <div id=\"sim-speed-buttons\">\n      <mat-button-toggle-group class=\"button-row\" value=\"{{simSpeedIndex}}\">\n        <mat-button-toggle value=\"3\" matTooltip=\"Depending on your systems CPU, visualization could be lagging. In this case, prefer 'Fast'.\" matTooltipPosition=\"right\" (click)=\"goMax()\">Max</mat-button-toggle>\n        <mat-button-toggle value=\"2\" (click)=\"goFast()\">Fast</mat-button-toggle>\n        <mat-button-toggle value=\"1\" (click)=\"goNormal()\">Normal</mat-button-toggle>\n        <mat-button-toggle value=\"0\" (click)=\"goSlow()\">Slow</mat-button-toggle>\n      </mat-button-toggle-group>\n    </div>\n  </div>\n  <canvas id=\"simulation\" width=\"{{width}}\" height=\"{{height}}\"></canvas>\n  <div id=\"data-table\">\n    <table width=\"100%\" class=\"highlight\">\n      <thead>\n        <tr>\n          <th matTooltip=\"Agent Id\">Id</th>\n          <th matTooltip=\"Total amount of collected green Items\">tot. green Items</th>\n          <th matTooltip=\"Total amount of collected red Items\">tot. red Items</th>\n          <th matTooltip=\"Amount of collected green Items per second\">curr. green Items</th>\n          <th matTooltip=\"Amount of collected red Items per second\">curr. red Items</th>\n          <th matTooltip=\"Wall detection punishment per second\">Walls</th>\n          <th matTooltip=\"Agent detection punishment per second\">Agents</th>\n        </tr>\n      </thead>\n      <tbody>\n        <tr *ngFor=\"let collision of collisionStats.collisions; let i = index\" [attr.data-index]=\"i\">\n          <td>{{i + 1}}</td>\n          <td>{{collision.totalItem0Collisions}}</td>\n          <td>{{collision.totalItem1Collisions}}</td>\n          <td>{{collision.item0Collisions}}</td>\n          <td>{{collision.item1Collisions}}</td>\n          <td>{{collision.wallDetectionReward | number: '3.2-2'}}</td>\n          <td>{{collision.agentDetectionReward | number: '3.2-2'}}</td>\n        </tr>\n      </tbody>\n    </table>\n  </div>\n  <div id=\"chart-control-panel\">\n    <mat-button-toggle-group class=\"button-row\">\n      <button mat-button color=\"accent\" *ngIf=\"!isPausedPlotting\" (click)=\"pausePlotting()\">Pause Plotting</button>\n      <button mat-button color=\"warn\" *ngIf=\"isPausedPlotting\" (click)=\"pausePlotting()\">Run Plotting</button>\n    </mat-button-toggle-group>\n    <div matTooltip=\"Shows the rewards and punishments of the Agents over time.\" matTooltipPosition=\"above\" id=\"reward-chart\" style=\"width:100%; height: 300px;\"></div>\n  </div>\n</mat-card>\n"
+module.exports = "<mat-toolbar color=\"primary\" class=\"second-toolbar\">\n  <mat-toolbar-row></mat-toolbar-row>\n  <mat-toolbar-row>\n    <h1>Pre-trained Agents</h1>\n  </mat-toolbar-row>\n</mat-toolbar>\n<mat-card>\n  <mat-card-header>\n    <mat-card-title>Simulation</mat-card-title>\n  </mat-card-header>\n  <div id=\"sim-control-panel\">\n    <div id=\"sim-control-buttons\">\n      <mat-button-toggle-group class=\"button-row\">\n        <button mat-button color=\"primary\" *ngIf=\"!isPaused\" (click)=\"pause()\">Pause</button>\n        <button mat-button color=\"warn\" *ngIf=\"isPaused\" (click)=\"start()\">Run</button>\n        <button mat-button matTooltip=\"Click to reload the brains from GitHub.\" matTooltipPosition=\"before\" color=\"warn\" *ngIf=\"!isFullyLoaded\" (click)=\"reload()\">Brains didn't load!</button>\n        <button mat-button matTooltip=\"Click to reload the brains from GitHub.\" matTooltipPosition=\"before\" color=\"primary\" *ngIf=\"isFullyLoaded\" (click)=\"reload()\">Brains are loaded</button>\n      </mat-button-toggle-group>\n    </div>\n    <div id=\"sim-speed-buttons\">\n      <mat-button-toggle-group class=\"button-row\" value=\"{{simSpeedIndex}}\">\n        <mat-button-toggle value=\"3\" matTooltip=\"Depending on your systems CPU, visualization could be lagging. In this case, prefer 'Fast'.\" matTooltipPosition=\"right\" (click)=\"goMax()\">Max</mat-button-toggle>\n        <mat-button-toggle value=\"2\" (click)=\"goFast()\">Fast</mat-button-toggle>\n        <mat-button-toggle value=\"1\" (click)=\"goNormal()\">Normal</mat-button-toggle>\n        <mat-button-toggle value=\"0\" (click)=\"goSlow()\">Slow</mat-button-toggle>\n      </mat-button-toggle-group>\n    </div>\n  </div>\n  <canvas id=\"simulation\" width=\"{{width}}\" height=\"{{height}}\"></canvas>\n  <div id=\"data-table\">\n    <table width=\"100%\" class=\"highlight\">\n      <thead>\n        <tr>\n          <th matTooltip=\"Agent Id\">Id</th>\n          <th matTooltip=\"Total amount of collected green Items\">tot. green Items</th>\n          <th matTooltip=\"Total amount of collected red Items\">tot. red Items</th>\n          <th matTooltip=\"Amount of collected green Items per second\">curr. green Items</th>\n          <th matTooltip=\"Amount of collected red Items per second\">curr. red Items</th>\n          <th matTooltip=\"Wall detection punishment per second\">Walls</th>\n          <th matTooltip=\"Agent detection punishment per second\">Agents</th>\n        </tr>\n      </thead>\n      <tbody>\n        <tr *ngFor=\"let reward of stats.rewards; let i = index\" [attr.data-index]=\"i\">\n          <td>{{i + 1}}</td>\n          <td>{{reward.totalItem0Collisions}}</td>\n          <td>{{reward.totalItem1Collisions}}</td>\n          <td>{{reward.item0Collisions}}</td>\n          <td>{{reward.item1Collisions}}</td>\n          <td>{{reward.wallDetectionReward | number: '3.2-2'}}</td>\n          <td>{{reward.agentDetectionReward | number: '3.2-2'}}</td>\n        </tr>\n      </tbody>\n    </table>\n  </div>\n  <div id=\"chart-control-panel\">\n    <mat-button-toggle-group class=\"button-row\">\n      <button mat-button color=\"accent\" *ngIf=\"!isPausedPlotting\" (click)=\"pausePlotting()\">Pause Plotting</button>\n      <button mat-button color=\"warn\" *ngIf=\"isPausedPlotting\" (click)=\"pausePlotting()\">Run Plotting</button>\n    </mat-button-toggle-group>\n    <div matTooltip=\"Shows the rewards and punishments of the Agents over time.\" matTooltipPosition=\"above\" id=\"reward-chart\" style=\"width:100%; height: 300px;\"></div>\n  </div>\n</mat-card>\n"
 
 /***/ }),
 
@@ -345,7 +345,7 @@ module.exports = "<mat-toolbar color=\"primary\" class=\"second-toolbar\">\n  <m
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PretrainedComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm2015/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__viewcontrol_viewcontrol__ = __webpack_require__("./src/app/viewcontrol/viewcontrol.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__viewcontroller_viewcontroller__ = __webpack_require__("./src/app/viewcontroller/viewcontroller.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -365,12 +365,20 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 
 
-let PretrainedComponent = class PretrainedComponent extends __WEBPACK_IMPORTED_MODULE_1__viewcontrol_viewcontrol__["a" /* ViewControl */] {
+let PretrainedComponent = class PretrainedComponent extends __WEBPACK_IMPORTED_MODULE_1__viewcontroller_viewcontroller__["a" /* ViewController */] {
     constructor() {
         super();
         this.baseUrl = "https://rawgit.com/mvrahden/learning-agents/master/src/app/pretrained/brains/agent-brain-state.";
         this.loadedBrainCounter = 0;
         this.isFullyLoaded = false;
+    }
+    reload() {
+        this.initConcrete();
+    }
+    logStartMessage() {
+        console.log('[' + new Date().toISOString() + ']: Evaluation of Agent is starting!'
+            + '\nStarting evaluation phase!'
+            + '\nCurrent Timestamp: ' + new Date().getTime());
     }
     initConcrete() {
         this.loadedBrainCounter = 0;
@@ -380,9 +388,6 @@ let PretrainedComponent = class PretrainedComponent extends __WEBPACK_IMPORTED_M
     }
     switchAgentsToEvaluationMode() {
         this.world.switchTrainingModeOfAgents(false);
-    }
-    reload() {
-        this.initConcrete();
     }
     loadBrains() {
         return __awaiter(this, void 0, void 0, function* () {
@@ -464,7 +469,7 @@ module.exports = "#sim-control-panel, #chart-control-panel {\n  width: 100%;\n}\
 /***/ "./src/app/simulation/simulation.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<mat-toolbar color=\"primary\" class=\"second-toolbar\">\n  <mat-toolbar-row></mat-toolbar-row>\n  <mat-toolbar-row>\n    <h1>Simulation: Learning Agents</h1>\n  </mat-toolbar-row>\n</mat-toolbar>\n<mat-card class=\"simulation-panel\">\n  <mat-card-header>\n    <mat-card-title>Simulation</mat-card-title>\n  </mat-card-header>\n  <div id=\"sim-control-panel\">\n    <div id=\"sim-control-buttons\">\n      <mat-button-toggle-group class=\"button-row\">\n        <button mat-button color=\"primary\" *ngIf=\"!isPaused\" (click)=\"pause()\">Pause</button>\n        <button mat-button color=\"warn\" *ngIf=\"isPaused\" (click)=\"start()\">Run</button>\n        <button mat-button (click)=\"reset()\">Reset</button>\n        <button mat-button color=\"accent\" *ngIf=\"!isPausedDrawing\" (click)=\"pauseDrawing()\">Pause Visualization</button>\n        <button mat-button color=\"warn\" *ngIf=\"isPausedDrawing\" (click)=\"pauseDrawing()\">Run Visualization</button>\n      </mat-button-toggle-group>\n    </div>\n    <div id=\"sim-speed-buttons\">\n      <mat-button-toggle-group class=\"button-row\" value=\"{{simSpeedIndex}}\">\n        <mat-button-toggle value=\"3\" matTooltip=\"Depending on your systems CPU, the visualization could be lagging. In this case, prefer 'Fast'.\" matTooltipPosition=\"right\" (click)=\"goMax()\">Max</mat-button-toggle>\n        <mat-button-toggle value=\"2\" (click)=\"goFast()\">Fast</mat-button-toggle>\n        <mat-button-toggle value=\"1\" (click)=\"goNormal()\">Normal</mat-button-toggle>\n        <mat-button-toggle value=\"0\" (click)=\"goSlow()\">Slow</mat-button-toggle>\n      </mat-button-toggle-group>\n    </div>\n  </div>\n  <canvas id=\"simulation\" width=\"{{width}}\" height=\"{{height}}\"></canvas>\n  <div id=\"data-table\">\n    <table width=\"100%\" class=\"highlight\">\n      <thead>\n        <tr>\n          <th matTooltip=\"Agent Id\">Id</th>\n          <th matTooltip=\"Total amount of collected green Items\">tot. green Items</th>\n          <th matTooltip=\"Total amount of collected red Items\">tot. red Items</th>\n          <th matTooltip=\"Amount of collected green Items per second\">curr. green Items</th>\n          <th matTooltip=\"Amount of collected red Items per second\">curr. red Items</th>\n          <th matTooltip=\"Wall detection punishment per second\">Walls</th>\n          <th matTooltip=\"Agent detection punishment per second\">Agents</th>\n        </tr>\n      </thead>\n      <tbody>\n        <tr *ngFor=\"let collision of collisionStats.collisions; let i = index\" [attr.data-index]=\"i\">\n          <td>{{i + 1}}</td>\n          <td>{{collision.totalItem0Collisions}}</td>\n          <td>{{collision.totalItem1Collisions}}</td>\n          <td>{{collision.item0Collisions}}</td>\n          <td>{{collision.item1Collisions}}</td>\n          <td>{{collision.wallDetectionReward | number: '3.2-2'}}</td>\n          <td>{{collision.agentDetectionReward | number: '3.2-2'}}</td>\n        </tr>\n      </tbody>\n    </table>\n  </div>\n  <div id=\"chart-control-panel\">\n    <mat-button-toggle-group class=\"button-row\">\n      <button mat-button matTooltip=\"Logs the current state into your browsers console.\" matTooltipPosition=\"before\" (click)=\"logEvaluation()\">Log Evaluation</button>\n      <button mat-button color=\"accent\" *ngIf=\"!isPausedPlotting\" (click)=\"pausePlotting()\">Pause Plotting</button>\n      <button mat-button color=\"warn\" *ngIf=\"isPausedPlotting\" (click)=\"pausePlotting()\">Run Plotting</button>\n    </mat-button-toggle-group>\n    <div matTooltip=\"Shows the rewards and punishments of the Agents over time.\" matTooltipPosition=\"above\" id=\"reward-chart\" style=\"width:100%; height: 300px;\"></div>\n  </div>\n</mat-card>\n"
+module.exports = "<mat-toolbar color=\"primary\" class=\"second-toolbar\">\n  <mat-toolbar-row></mat-toolbar-row>\n  <mat-toolbar-row>\n    <h1>Simulation: Learning Agents</h1>\n  </mat-toolbar-row>\n</mat-toolbar>\n<mat-card class=\"simulation-panel\">\n  <mat-card-header>\n    <mat-card-title>Simulation</mat-card-title>\n  </mat-card-header>\n  <div id=\"sim-control-panel\">\n    <div id=\"sim-control-buttons\">\n      <mat-button-toggle-group class=\"button-row\">\n        <button mat-button color=\"primary\" *ngIf=\"!isPaused\" (click)=\"pause()\">Pause</button>\n        <button mat-button color=\"warn\" *ngIf=\"isPaused\" (click)=\"start()\">Run</button>\n        <button mat-button (click)=\"reset()\">Reset</button>\n        <button mat-button color=\"accent\" *ngIf=\"!isPausedDrawing\" (click)=\"pauseDrawing()\">Pause Visualization</button>\n        <button mat-button color=\"warn\" *ngIf=\"isPausedDrawing\" (click)=\"pauseDrawing()\">Run Visualization</button>\n      </mat-button-toggle-group>\n    </div>\n    <div id=\"sim-speed-buttons\">\n      <mat-button-toggle-group class=\"button-row\" value=\"{{simSpeedIndex}}\">\n        <mat-button-toggle value=\"3\" matTooltip=\"Depending on your systems CPU, the visualization could be lagging. In this case, prefer 'Fast'.\" matTooltipPosition=\"right\" (click)=\"goMax()\">Max</mat-button-toggle>\n        <mat-button-toggle value=\"2\" (click)=\"goFast()\">Fast</mat-button-toggle>\n        <mat-button-toggle value=\"1\" (click)=\"goNormal()\">Normal</mat-button-toggle>\n        <mat-button-toggle value=\"0\" (click)=\"goSlow()\">Slow</mat-button-toggle>\n      </mat-button-toggle-group>\n    </div>\n  </div>\n  <canvas id=\"simulation\" width=\"{{width}}\" height=\"{{height}}\"></canvas>\n  <div id=\"data-table\">\n    <table width=\"100%\" class=\"highlight\">\n      <thead>\n        <tr>\n          <th matTooltip=\"Agent Id\">Id</th>\n          <th matTooltip=\"Total amount of collected green Items\">tot. green Items</th>\n          <th matTooltip=\"Total amount of collected red Items\">tot. red Items</th>\n          <th matTooltip=\"Amount of collected green Items per second\">curr. green Items</th>\n          <th matTooltip=\"Amount of collected red Items per second\">curr. red Items</th>\n          <th matTooltip=\"Wall detection punishment per second\">Walls</th>\n          <th matTooltip=\"Agent detection punishment per second\">Agents</th>\n        </tr>\n      </thead>\n      <tbody>\n        <tr *ngFor=\"let reward of stats.rewards; let i = index\" [attr.data-index]=\"i\">\n          <td>{{i + 1}}</td>\n          <td>{{reward.totalItem0Collisions}}</td>\n          <td>{{reward.totalItem1Collisions}}</td>\n          <td>{{reward.item0Collisions}}</td>\n          <td>{{reward.item1Collisions}}</td>\n          <td>{{reward.wallDetectionReward | number: '3.2-2'}}</td>\n          <td>{{reward.agentDetectionReward | number: '3.2-2'}}</td>\n        </tr>\n      </tbody>\n    </table>\n  </div>\n  <div id=\"chart-control-panel\">\n    <mat-button-toggle-group class=\"button-row\">\n      <button mat-button matTooltip=\"Logs the current state into your browsers console.\" matTooltipPosition=\"before\" (click)=\"logEvaluation()\">Log Evaluation</button>\n      <button mat-button color=\"accent\" *ngIf=\"!isPausedPlotting\" (click)=\"pausePlotting()\">Pause Plotting</button>\n      <button mat-button color=\"warn\" *ngIf=\"isPausedPlotting\" (click)=\"pausePlotting()\">Run Plotting</button>\n    </mat-button-toggle-group>\n    <div matTooltip=\"Shows the rewards and punishments of the Agents over time.\" matTooltipPosition=\"above\" id=\"reward-chart\" style=\"width:100%; height: 300px;\"></div>\n  </div>\n</mat-card>\n"
 
 /***/ }),
 
@@ -476,7 +481,8 @@ module.exports = "<mat-toolbar color=\"primary\" class=\"second-toolbar\">\n  <m
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm2015/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_learning_agents_model__ = __webpack_require__("./node_modules/learning-agents-model/dist/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_learning_agents_model___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_learning_agents_model__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__viewcontrol_viewcontrol__ = __webpack_require__("./src/app/viewcontrol/viewcontrol.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_specs_utility__ = __webpack_require__("./src/app/simulation/utils/specs.utility.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__viewcontroller_viewcontroller__ = __webpack_require__("./src/app/viewcontroller/viewcontroller.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -489,14 +495,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-let SimulationComponent = class SimulationComponent extends __WEBPACK_IMPORTED_MODULE_2__viewcontrol_viewcontrol__["a" /* ViewControl */] {
+
+let SimulationComponent = class SimulationComponent extends __WEBPACK_IMPORTED_MODULE_3__viewcontroller_viewcontroller__["a" /* ViewController */] {
     constructor() {
         super();
         this.trainingPeriod = 2.5e6;
         // Simulation and Controls
         this.valueAlternationTick = 0;
     }
-    initConcrete() { }
+    initConcrete() {
+        this.specs = new Array();
+        for (const [i, agent] of this.world.agents.entries()) {
+            this.specs.push(new __WEBPACK_IMPORTED_MODULE_2__utils_specs_utility__["a" /* Specs */](i + 1, agent));
+        }
+    }
     handleEvaluationPeriodActivation() {
         if (this.world.clock() === this.trainingPeriod) {
             // when trainings period is over, set value alternation intervall
@@ -525,18 +537,20 @@ let SimulationComponent = class SimulationComponent extends __WEBPACK_IMPORTED_M
         console.log(JSON.stringify(this.specs));
     }
     logCollisionHistory() {
-        console.log("Collision History-Log: ");
-        for (const i of this.collisionStats.collisionHistory.keys()) {
+        console.log("Rewards History-Log [logging per Second]: ");
+        console.log("[timestamp, item-0-collisions, item-1-collisions, wall-detection-reward, agent-detection-reward]");
+        for (const i of this.stats.rewardHistory.keys()) {
             let data = {};
             data['agentId'] = i.toString();
-            data['collisionHistory'] = JSON.stringify(this.collisionStats.collisionHistory[i]);
+            data['rewardHistory'] = JSON.stringify(this.stats.rewardHistory[i]);
             console.log(JSON.stringify(data));
         }
     }
     logItemChangeHistory() {
-        console.log("Item Change History-Log: ");
+        console.log("Item Change History-Log [logging per Second]: ");
+        console.log("[timestamp, total-items, amount-item-0, amount-item-1]");
         let data = {};
-        data['itemChangeHistory'] = JSON.stringify(this.collisionStats.itemChangeHistory);
+        data['itemChangeHistory'] = JSON.stringify(this.stats.itemChangeHistory);
         console.log(JSON.stringify(data));
     }
     logAgentBrainState() {
@@ -589,11 +603,34 @@ SimulationComponent = __decorate([
 
 /***/ }),
 
-/***/ "./src/app/viewcontrol/utils/canvas.utility.ts":
+/***/ "./src/app/simulation/utils/specs.utility.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-class CanvasUtility {
+class Specs {
+    constructor(id, agent) {
+        this.id = id;
+        this.alpha = agent.getOpt().get('alpha');
+        this.epsilon = agent.getOpt().get('epsilon');
+        this.gamma = agent.getOpt().get('gamma');
+        this.experienceSize = agent.getOpt().get('experienceSize');
+        this.experienceAddEvery = agent.getOpt().get('experienceAddEvery');
+        this.learningStepsPerIteration = agent.getOpt().get('learningStepsPerIteration');
+        this.tdErrorClamp = agent.getOpt().get('tdErrorClamp');
+        this.numHiddenUnits = agent.getOpt().get('numHiddenUnits');
+    }
+}
+/* harmony export (immutable) */ __webpack_exports__["a"] = Specs;
+
+
+
+/***/ }),
+
+/***/ "./src/app/viewcontroller/utils/canvas.utility.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+class Canvas {
     constructor(canvas, document, width, height) {
         this.agentView = false;
         this.defaultFillColor = "rgba(255, 255, 255, 0)"; // #464646 strong grey
@@ -752,152 +789,17 @@ class CanvasUtility {
         this.ctx.stroke();
     }
 }
-/* harmony export (immutable) */ __webpack_exports__["a"] = CanvasUtility;
+/* harmony export (immutable) */ __webpack_exports__["a"] = Canvas;
 
 
 
 /***/ }),
 
-/***/ "./src/app/viewcontrol/utils/collision-stats.utility.ts":
+/***/ "./src/app/viewcontroller/utils/chart.utility.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__collision_utility__ = __webpack_require__("./src/app/viewcontrol/utils/collision.utility.ts");
-
-class CollisionStats {
-    constructor(agents, items) {
-        this.init(agents, items);
-    }
-    init(agents, items) {
-        this.resetCollisionRecords(agents);
-        this.resetItemChangeRecord();
-        const currentSecond = this.getTimestamp();
-        this.initCollisionHistory(agents, currentSecond);
-        this.initItemChangeHistory(items, currentSecond);
-        this.historicalDataTick = 1;
-    }
-    resetItemChangeRecord() {
-        this.itemChange = [0, 0, 0];
-    }
-    initItemChangeHistory(items, currentSecond) {
-        this.itemChangeHistory = new Array();
-        const [item0, item1] = this.getItemCounts(items);
-        this.itemChangeHistory.push([currentSecond, items.length, item0, item1]);
-    }
-    getItemCounts(items) {
-        let item0 = 0;
-        let item1 = 0;
-        for (const item of items) {
-            if (item.type === 1) {
-                item0++;
-            }
-            else if (item.type === 2) {
-                item1++;
-            }
-        }
-        return [item0, item1];
-    }
-    initCollisionHistory(agents, currentSecond) {
-        this.collisionHistory = new Array();
-        for (const id of agents.keys()) {
-            this.collisionHistory.push([[currentSecond, 0, 0, 0, 0]]);
-        }
-    }
-    reset(agents, items) {
-        this.init(agents, items);
-    }
-    tick(worldClock, agents, items, ticksPerSecond) {
-        this.tickCollisions(agents);
-        this.tickItemChange(items);
-        const timestamp = this.getTimestamp();
-        this.tickCollisionHistory(worldClock, timestamp, agents, ticksPerSecond);
-        this.tickItemHistory(worldClock, timestamp, items, ticksPerSecond);
-        this.historicalDataTick++;
-    }
-    tickCollisions(agents) {
-        for (const [i, agent] of agents.entries()) {
-            this.recordAgentCollisions(i, agent);
-        }
-    }
-    tickItemChange(items) {
-        const [item0, item1] = this.getItemCounts(items);
-        this.itemChange[0] += items.length;
-        this.itemChange[1] += item0;
-        this.itemChange[2] += item1;
-    }
-    recordAgentCollisions(id, agent) {
-        this.collisions[id].totalItem0Collisions = agent.sensory.totalItem0Collisions;
-        this.collisions[id].totalItem1Collisions = agent.sensory.totalItem1Collisions;
-        this.collisions[id].item0Collisions += agent.sensory.item0CollisionsPerTick;
-        this.collisions[id].item1Collisions += agent.sensory.item1CollisionsPerTick;
-        this.collisions[id].wallDetectionReward += agent.sensory.wallDetectionRewardPerTick;
-        this.collisions[id].agentDetectionReward += agent.sensory.agentDetectionRewardPerTick;
-    }
-    tickCollisionHistory(worldClock, timestamp, agents, ticksPerSecond) {
-        if (worldClock % ticksPerSecond === 0) {
-            for (const id of agents.keys()) {
-                this.recordAgentsCollisionHistory(id, timestamp, ticksPerSecond);
-            }
-            this.resetCollisionRecords(agents);
-        }
-    }
-    getTimestamp() {
-        return new Date().getTime();
-    }
-    recordAgentsCollisionHistory(id, timestamp, ticksPerSecond) {
-        this.collisionHistory[id].push([timestamp,
-            this.collisions[id].item0Collisions,
-            this.collisions[id].item1Collisions,
-            this.collisions[id].wallDetectionReward,
-            this.collisions[id].agentDetectionReward]);
-    }
-    resetCollisionRecords(agents) {
-        this.collisions = new Array(agents.length);
-        for (const [id, agent] of agents.entries()) {
-            this.collisions[id] = new __WEBPACK_IMPORTED_MODULE_0__collision_utility__["a" /* Collisions */](agent.sensory.totalItem0Collisions, agent.sensory.totalItem1Collisions);
-        }
-    }
-    tickItemHistory(worldClock, timestamp, items, ticksPerSecond) {
-        if (worldClock % ticksPerSecond === 0) {
-            this.itemChangeHistory.push([timestamp,
-                this.itemChange[0] / ticksPerSecond,
-                this.itemChange[1] / ticksPerSecond,
-                this.itemChange[2] / ticksPerSecond]);
-            this.resetItemChangeRecord();
-        }
-    }
-}
-/* harmony export (immutable) */ __webpack_exports__["a"] = CollisionStats;
-
-
-
-/***/ }),
-
-/***/ "./src/app/viewcontrol/utils/collision.utility.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-class Collisions {
-    constructor(totalItem0, totalItem1) {
-        this.totalItem0Collisions = totalItem0;
-        this.totalItem1Collisions = totalItem1;
-        this.item0Collisions = 0;
-        this.item1Collisions = 0;
-        this.wallDetectionReward = 0;
-        this.agentDetectionReward = 0;
-    }
-}
-/* harmony export (immutable) */ __webpack_exports__["a"] = Collisions;
-
-
-
-/***/ }),
-
-/***/ "./src/app/viewcontrol/utils/flot.charts.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-class Flot {
+class Chart {
     constructor(htmlId, document, $, stats, xMax = 1000) {
         this.yInterval = [-140, 15];
         this.getOptsFor = (xMin, xMax, yMin = this.yInterval[0], yMax = this.yInterval[1]) => {
@@ -972,69 +874,179 @@ class Flot {
         const item1 = new Array(1000);
         const wall = new Array(1000);
         const agent = new Array(1000);
-        const lowerBound = Math.max(0, this.stats.collisionHistory[agentId].length - 1000);
-        for (let j = lowerBound; j < this.stats.collisionHistory[agentId].length; j++) {
-            item0[j - lowerBound] = [this.stats.collisionHistory[agentId][j][0], this.stats.collisionHistory[agentId][j][1]];
-            item1[j - lowerBound] = [this.stats.collisionHistory[agentId][j][0], this.stats.collisionHistory[agentId][j][2]];
-            wall[j - lowerBound] = [this.stats.collisionHistory[agentId][j][0], this.stats.collisionHistory[agentId][j][3]];
-            agent[j - lowerBound] = [this.stats.collisionHistory[agentId][j][0], this.stats.collisionHistory[agentId][j][4]];
+        const lowerBound = Math.max(0, this.stats.rewardHistory[agentId].length - 1000);
+        for (let j = lowerBound; j < this.stats.rewardHistory[agentId].length; j++) {
+            item0[j - lowerBound] = [this.stats.rewardHistory[agentId][j][0], this.stats.rewardHistory[agentId][j][1]];
+            item1[j - lowerBound] = [this.stats.rewardHistory[agentId][j][0], this.stats.rewardHistory[agentId][j][2]];
+            wall[j - lowerBound] = [this.stats.rewardHistory[agentId][j][0], this.stats.rewardHistory[agentId][j][3]];
+            agent[j - lowerBound] = [this.stats.rewardHistory[agentId][j][0], this.stats.rewardHistory[agentId][j][4]];
         }
         return [item0, item1, wall, agent];
     }
     ensureXAxisInterval() {
-        const length = this.stats.collisionHistory[0].length;
+        const length = this.stats.rewardHistory[0].length;
         if (length > this.xaxisLength) {
-            const xMin = this.stats.collisionHistory[0][length - this.xaxisLength - 1][0];
-            const xMax = this.stats.collisionHistory[0][length - 1][0];
+            const xMin = this.stats.rewardHistory[0][length - this.xaxisLength - 1][0];
+            const xMax = this.stats.rewardHistory[0][length - 1][0];
             this.opt = this.getOptsFor(xMin, xMax);
         }
     }
 }
-/* harmony export (immutable) */ __webpack_exports__["a"] = Flot;
+/* harmony export (immutable) */ __webpack_exports__["a"] = Chart;
 
 
 
 /***/ }),
 
-/***/ "./src/app/viewcontrol/utils/specs.utility.ts":
+/***/ "./src/app/viewcontroller/utils/rewards.utility.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-class Specs {
-    constructor(id, agent) {
-        this.id = id;
-        this.alpha = agent.getOpt().get('alpha');
-        this.epsilon = agent.getOpt().get('epsilon');
-        this.gamma = agent.getOpt().get('gamma');
-        this.experienceSize = agent.getOpt().get('experienceSize');
-        this.experienceAddEvery = agent.getOpt().get('experienceAddEvery');
-        this.learningStepsPerIteration = agent.getOpt().get('learningStepsPerIteration');
-        this.tdErrorClamp = agent.getOpt().get('tdErrorClamp');
-        this.numHiddenUnits = agent.getOpt().get('numHiddenUnits');
+class Rewards {
+    constructor(totalItem0, totalItem1) {
+        this.totalItem0Collisions = totalItem0;
+        this.totalItem1Collisions = totalItem1;
+        this.item0Collisions = 0;
+        this.item1Collisions = 0;
+        this.wallDetectionReward = 0;
+        this.agentDetectionReward = 0;
     }
 }
-/* harmony export (immutable) */ __webpack_exports__["a"] = Specs;
+/* harmony export (immutable) */ __webpack_exports__["a"] = Rewards;
 
 
 
 /***/ }),
 
-/***/ "./src/app/viewcontrol/viewcontrol.ts":
+/***/ "./src/app/viewcontroller/utils/stats.utility.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__rewards_utility__ = __webpack_require__("./src/app/viewcontroller/utils/rewards.utility.ts");
+
+class Stats {
+    constructor(agents, items) {
+        this.init(agents, items);
+    }
+    init(agents, items) {
+        this.resetRewardRecords(agents);
+        this.resetItemChangeRecord();
+        const currentSecond = this.getTimestamp();
+        this.initCollisionHistory(agents, currentSecond);
+        this.initItemChangeHistory(items, currentSecond);
+        this.historicalDataTick = 1;
+    }
+    resetItemChangeRecord() {
+        this.itemChange = [0, 0, 0];
+    }
+    initItemChangeHistory(items, currentSecond) {
+        this.itemChangeHistory = new Array();
+        const [item0, item1] = this.getItemCounts(items);
+        this.itemChangeHistory.push([currentSecond, items.length, item0, item1]);
+    }
+    getItemCounts(items) {
+        let item0 = 0;
+        let item1 = 0;
+        for (const item of items) {
+            if (item.type === 1) {
+                item0++;
+            }
+            else if (item.type === 2) {
+                item1++;
+            }
+        }
+        return [item0, item1];
+    }
+    initCollisionHistory(agents, currentSecond) {
+        this.rewardHistory = new Array();
+        for (const id of agents.keys()) {
+            this.rewardHistory.push([[currentSecond, 0, 0, 0, 0]]);
+        }
+    }
+    reset(agents, items) {
+        this.init(agents, items);
+    }
+    tick(worldClock, agents, items, ticksPerSecond) {
+        this.logRewards(agents);
+        this.logItemChange(items);
+        const timestamp = this.getTimestamp();
+        this.logRewardHistory(worldClock, timestamp, agents, ticksPerSecond);
+        this.logItemHistory(worldClock, timestamp, items, ticksPerSecond);
+        this.historicalDataTick++;
+    }
+    logRewards(agents) {
+        for (const [i, agent] of agents.entries()) {
+            this.recordAgentRewards(i, agent);
+        }
+    }
+    logItemChange(items) {
+        const [item0, item1] = this.getItemCounts(items);
+        this.itemChange[0] += items.length;
+        this.itemChange[1] += item0;
+        this.itemChange[2] += item1;
+    }
+    recordAgentRewards(id, agent) {
+        this.rewards[id].totalItem0Collisions = agent.sensory.totalItem0Collisions;
+        this.rewards[id].totalItem1Collisions = agent.sensory.totalItem1Collisions;
+        this.rewards[id].item0Collisions += agent.sensory.item0CollisionsPerTick;
+        this.rewards[id].item1Collisions += agent.sensory.item1CollisionsPerTick;
+        this.rewards[id].wallDetectionReward += agent.sensory.wallDetectionRewardPerTick;
+        this.rewards[id].agentDetectionReward += agent.sensory.agentDetectionRewardPerTick;
+    }
+    logRewardHistory(worldClock, timestamp, agents, ticksPerSecond) {
+        if (worldClock % ticksPerSecond === 0) {
+            for (const id of agents.keys()) {
+                this.recordAgentsRewardHistory(id, timestamp, ticksPerSecond);
+            }
+            this.resetRewardRecords(agents);
+        }
+    }
+    getTimestamp() {
+        return new Date().getTime();
+    }
+    recordAgentsRewardHistory(id, timestamp, ticksPerSecond) {
+        this.rewardHistory[id].push([timestamp,
+            this.rewards[id].item0Collisions,
+            this.rewards[id].item1Collisions,
+            this.rewards[id].wallDetectionReward,
+            this.rewards[id].agentDetectionReward]);
+    }
+    resetRewardRecords(agents) {
+        this.rewards = new Array(agents.length);
+        for (const [id, agent] of agents.entries()) {
+            this.rewards[id] = new __WEBPACK_IMPORTED_MODULE_0__rewards_utility__["a" /* Rewards */](agent.sensory.totalItem0Collisions, agent.sensory.totalItem1Collisions);
+        }
+    }
+    logItemHistory(worldClock, timestamp, items, ticksPerSecond) {
+        if (worldClock % ticksPerSecond === 0) {
+            this.itemChangeHistory.push([timestamp,
+                this.itemChange[0] / ticksPerSecond,
+                this.itemChange[1] / ticksPerSecond,
+                this.itemChange[2] / ticksPerSecond]);
+            this.resetItemChangeRecord();
+        }
+    }
+}
+/* harmony export (immutable) */ __webpack_exports__["a"] = Stats;
+
+
+
+/***/ }),
+
+/***/ "./src/app/viewcontroller/viewcontroller.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_learning_agents_model__ = __webpack_require__("./node_modules/learning-agents-model/dist/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_learning_agents_model___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_learning_agents_model__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_specs_utility__ = __webpack_require__("./src/app/viewcontrol/utils/specs.utility.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_collision_stats_utility__ = __webpack_require__("./src/app/viewcontrol/utils/collision-stats.utility.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_canvas_utility__ = __webpack_require__("./src/app/viewcontrol/utils/canvas.utility.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__utils_flot_charts__ = __webpack_require__("./src/app/viewcontrol/utils/flot.charts.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_stats_utility__ = __webpack_require__("./src/app/viewcontroller/utils/stats.utility.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_chart_utility__ = __webpack_require__("./src/app/viewcontroller/utils/chart.utility.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_canvas_utility__ = __webpack_require__("./src/app/viewcontroller/utils/canvas.utility.ts");
 
 
 
 
-
-class ViewControl {
+class ViewController {
     constructor() {
         this.width = 600;
         this.height = 600;
@@ -1053,24 +1065,23 @@ class ViewControl {
     init() {
         this.world = new __WEBPACK_IMPORTED_MODULE_0_learning_agents_model__["World"](this.width, this.height, this.maxAgents, this.maxItems);
         this.world.setBoundaryCondition('stable');
-        this.specs = new Array();
-        for (const [i, agent] of this.world.agents.entries()) {
-            this.specs.push(new __WEBPACK_IMPORTED_MODULE_1__utils_specs_utility__["a" /* Specs */](i + 1, agent));
-        }
-        this.collisionStats = new __WEBPACK_IMPORTED_MODULE_2__utils_collision_stats_utility__["a" /* CollisionStats */](this.world.getAgents(), this.world.getItems());
-        this.canvas = new __WEBPACK_IMPORTED_MODULE_3__utils_canvas_utility__["a" /* CanvasUtility */]('simulation', document, this.width, this.height);
-        this.chart = new __WEBPACK_IMPORTED_MODULE_4__utils_flot_charts__["a" /* Flot */]('reward-chart', document, $, this.collisionStats);
+        this.stats = new __WEBPACK_IMPORTED_MODULE_1__utils_stats_utility__["a" /* Stats */](this.world.getAgents(), this.world.getItems());
+        this.canvas = new __WEBPACK_IMPORTED_MODULE_3__utils_canvas_utility__["a" /* Canvas */]('simulation', document, this.width, this.height);
+        this.chart = new __WEBPACK_IMPORTED_MODULE_2__utils_chart_utility__["a" /* Chart */]('reward-chart', document, $, this.stats);
         this.isPaused = false;
         this.isPausedDrawing = false;
         this.isPausedPlotting = false;
     }
     start() {
-        console.log('[' + new Date().toISOString() + ']: Training of Agent is starting!'
-            + '\nStarting training phase!'
-            + '\nCurrent Timestamp: ' + new Date().getTime());
+        this.logStartMessage();
         this.isPaused = false;
         this.setSimulationInterval(this.simSpeedIndex);
         this.setEvaluationInterval();
+    }
+    logStartMessage() {
+        console.log('[' + new Date().toISOString() + ']: Training of Agent is starting!'
+            + '\nStarting training phase!'
+            + '\nCurrent Timestamp: ' + new Date().getTime());
     }
     pause() {
         this.isPaused = true;
@@ -1086,7 +1097,7 @@ class ViewControl {
     }
     reset() {
         this.world.reset();
-        this.collisionStats.reset(this.world.getAgents(), this.world.getItems());
+        this.stats.reset(this.world.getAgents(), this.world.getItems());
         this.chart.reset();
         this.start();
     }
@@ -1110,7 +1121,7 @@ class ViewControl {
     }
     tickSimulationLogic() {
         this.world.tick();
-        this.collisionStats.tick(this.world.clock(), this.world.getAgents(), this.world.getItems(), this.ticksPerSecond);
+        this.stats.tick(this.world.clock(), this.world.getAgents(), this.world.getItems(), this.ticksPerSecond);
         if (this.shouldUpdateCanvas()) {
             this.draw();
         }
@@ -1160,7 +1171,7 @@ class ViewControl {
         this.chart.plot(this.world.getAgents().length);
     }
 }
-/* harmony export (immutable) */ __webpack_exports__["a"] = ViewControl;
+/* harmony export (immutable) */ __webpack_exports__["a"] = ViewController;
 
 
 
