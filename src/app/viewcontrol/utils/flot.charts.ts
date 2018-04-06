@@ -1,7 +1,7 @@
-import { CollisionStats } from "./collision-stats.utility";
+import { Stats } from "./stats.utility";
 
 export class Flot {
-  stats: CollisionStats;
+  stats: Stats;
 
   private container: any;
   private $: any;
@@ -25,7 +25,7 @@ export class Flot {
     };
   };
 
-  constructor(htmlId: string, document: any, $: any, stats: CollisionStats, xMax: number = 1000) {
+  constructor(htmlId: string, document: any, $: any, stats: Stats, xMax: number = 1000) {
     this.container = document.getElementById(htmlId);
     this.$ = $;
     this.stats = stats;
@@ -88,22 +88,22 @@ export class Flot {
     const item1 = new Array<Array<number>>(1000);
     const wall = new Array<Array<number>>(1000);
     const agent = new Array<Array<number>>(1000);
-    const lowerBound = Math.max(0, this.stats.collisionHistory[agentId].length - 1000);
-    for (let j = lowerBound; j < this.stats.collisionHistory[agentId].length; j++) {
-      item0[j - lowerBound] = [this.stats.collisionHistory[agentId][j][0], this.stats.collisionHistory[agentId][j][1]]
-      item1[j - lowerBound] = [this.stats.collisionHistory[agentId][j][0], this.stats.collisionHistory[agentId][j][2]]
-      wall[j - lowerBound] = [this.stats.collisionHistory[agentId][j][0], this.stats.collisionHistory[agentId][j][3]]
-      agent[j - lowerBound] = [this.stats.collisionHistory[agentId][j][0], this.stats.collisionHistory[agentId][j][4]]
+    const lowerBound = Math.max(0, this.stats.rewardHistory[agentId].length - 1000);
+    for (let j = lowerBound; j < this.stats.rewardHistory[agentId].length; j++) {
+      item0[j - lowerBound] = [this.stats.rewardHistory[agentId][j][0], this.stats.rewardHistory[agentId][j][1]]
+      item1[j - lowerBound] = [this.stats.rewardHistory[agentId][j][0], this.stats.rewardHistory[agentId][j][2]]
+      wall[j - lowerBound] = [this.stats.rewardHistory[agentId][j][0], this.stats.rewardHistory[agentId][j][3]]
+      agent[j - lowerBound] = [this.stats.rewardHistory[agentId][j][0], this.stats.rewardHistory[agentId][j][4]]
     }
 
     return [item0, item1, wall, agent];
   }
 
   private ensureXAxisInterval() {
-    const length = this.stats.collisionHistory[0].length;
+    const length = this.stats.rewardHistory[0].length;
     if (length > this.xaxisLength) {
-      const xMin = this.stats.collisionHistory[0][length - this.xaxisLength - 1][0];
-      const xMax = this.stats.collisionHistory[0][length - 1][0];
+      const xMin = this.stats.rewardHistory[0][length - this.xaxisLength - 1][0];
+      const xMax = this.stats.rewardHistory[0][length - 1][0];
       this.opt = this.getOptsFor(xMin, xMax);
     }
   }

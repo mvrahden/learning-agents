@@ -3,7 +3,7 @@ import { OnInit } from '@angular/core';
 import { World } from 'learning-agents-model';
 
 import { Specs } from './utils/specs.utility';
-import { CollisionStats } from './utils/collision-stats.utility';
+import { Stats } from './utils/stats.utility';
 import { CanvasUtility } from './utils/canvas.utility';
 import { Flot } from './utils/flot.charts';
 
@@ -38,7 +38,7 @@ export abstract class ViewControl implements OnInit {
 
   // Evaluation Utils
   specs: Array<Specs>;
-  collisionStats: CollisionStats;
+  stats: Stats;
   chart: Flot;
 
   constructor() { }
@@ -57,9 +57,9 @@ export abstract class ViewControl implements OnInit {
     for (const [i, agent] of this.world.agents.entries()) {
       this.specs.push(new Specs(i + 1, agent));
     }
-    this.collisionStats = new CollisionStats(this.world.getAgents(), this.world.getItems());
+    this.stats = new Stats(this.world.getAgents(), this.world.getItems());
     this.canvas = new CanvasUtility('simulation', document, this.width, this.height);
-    this.chart = new Flot('reward-chart', document, $, this.collisionStats);
+    this.chart = new Flot('reward-chart', document, $, this.stats);
     this.isPaused = false;
     this.isPausedDrawing = false;
     this.isPausedPlotting = false;
@@ -93,7 +93,7 @@ export abstract class ViewControl implements OnInit {
 
   public reset(): void {
     this.world.reset();
-    this.collisionStats.reset(this.world.getAgents(), this.world.getItems());
+    this.stats.reset(this.world.getAgents(), this.world.getItems());
     this.chart.reset();
     this.start();
   }
@@ -125,7 +125,7 @@ export abstract class ViewControl implements OnInit {
 
   private tickSimulationLogic(): void {
     this.world.tick();
-    this.collisionStats.tick(
+    this.stats.tick(
       this.world.clock(),
       this.world.getAgents(),
       this.world.getItems(),

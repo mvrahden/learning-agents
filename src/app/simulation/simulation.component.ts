@@ -59,20 +59,24 @@ export class SimulationComponent extends ViewControl {
   }
 
   private logCollisionHistory(): void {
-    console.log("Collision History-Log: ");
-    for (const i of this.collisionStats.collisionHistory.keys()) {
+    console.log("Rewards History-Log [logging per Second]: ");
+    console.log("[timestamp, item-0-collisions, item-1-collisions, wall-detection-reward, agent-detection-reward]");
+    
+    for (const i of this.stats.rewardHistory.keys()) {
       let data = {};
       data['agentId'] = i.toString();
-      data['collisionHistory'] = JSON.stringify(this.collisionStats.collisionHistory[i]);
+      data['rewardHistory'] = JSON.stringify(this.stats.rewardHistory[i]);
       
       console.log(JSON.stringify(data));
     }
   }
 
   private logItemChangeHistory(): void {
-    console.log("Item Change History-Log: ");
+    console.log("Item Change History-Log [logging per Second]: ");
+    console.log("[timestamp, total-items, amount-item-0, amount-item-1]");
+
     let data = {};
-    data['itemChangeHistory'] = JSON.stringify(this.collisionStats.itemChangeHistory);
+    data['itemChangeHistory'] = JSON.stringify(this.stats.itemChangeHistory);
     
     console.log(JSON.stringify(data));
   }

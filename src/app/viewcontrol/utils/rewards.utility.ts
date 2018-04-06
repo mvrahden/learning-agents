@@ -1,4 +1,4 @@
-export class Collisions {
+export class Rewards {
   totalItem0Collisions: number;
   totalItem1Collisions: number;
   

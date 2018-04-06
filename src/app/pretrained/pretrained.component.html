@@ -41,14 +41,14 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let collision of collisionStats.collisions; let i = index" [attr.data-index]="i">
+        <tr *ngFor="let reward of stats.rewards; let i = index" [attr.data-index]="i">
           <td>{{i + 1}}</td>
-          <td>{{collision.totalItem0Collisions}}</td>
-          <td>{{collision.totalItem1Collisions}}</td>
-          <td>{{collision.item0Collisions}}</td>
-          <td>{{collision.item1Collisions}}</td>
-          <td>{{collision.wallDetectionReward | number: '3.2-2'}}</td>
-          <td>{{collision.agentDetectionReward | number: '3.2-2'}}</td>
+          <td>{{reward.totalItem0Collisions}}</td>
+          <td>{{reward.totalItem1Collisions}}</td>
+          <td>{{reward.item0Collisions}}</td>
+          <td>{{reward.item1Collisions}}</td>
+          <td>{{reward.wallDetectionReward | number: '3.2-2'}}</td>
+          <td>{{reward.agentDetectionReward | number: '3.2-2'}}</td>
         </tr>
       </tbody>
     </table>

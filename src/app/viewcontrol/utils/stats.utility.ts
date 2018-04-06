@@ -1,11 +1,11 @@
 import { RLAgent, Item } from 'learning-agents-model';
 
-import { Collisions } from './collision.utility';
+import { Rewards } from './rewards.utility';
 
-export class CollisionStats {
+export class Stats {
 
-  public collisions: Array<Collisions>;
-  public collisionHistory: Array<Array<Array<number>>>;
+  public rewards: Array<Rewards>;
+  public rewardHistory: Array<Array<Array<number>>>;
   public itemChange: Array<number>;
   public itemChangeHistory: Array<Array<number>>;
   public historicalDataTick: number;
@@ -15,7 +15,7 @@ export class CollisionStats {
   }
 
   private init(agents: Array<RLAgent>, items: Array<Item>): void {
-    this.resetCollisionRecords(agents);
+    this.resetRewardRecords(agents);
     this.resetItemChangeRecord();
     const currentSecond = this.getTimestamp();
     this.initCollisionHistory(agents, currentSecond);
@@ -44,9 +44,9 @@ export class CollisionStats {
   }
 
   private initCollisionHistory(agents: any[], currentSecond: number): void {
-    this.collisionHistory = new Array<Array<Array<number>>>();
+    this.rewardHistory = new Array<Array<Array<number>>>();
     for (const id of agents.keys()) {
-      this.collisionHistory.push([[currentSecond, 0, 0, 0, 0]]);
+      this.rewardHistory.push([[currentSecond, 0, 0, 0, 0]]);
     }
   }
 
@@ -55,44 +55,44 @@ export class CollisionStats {
   }
 
   public tick(worldClock: number, agents: Array<RLAgent>, items: Array<Item>, ticksPerSecond: number): void {
-    this.tickCollisions(agents);
-    this.tickItemChange(items);
+    this.logRewards(agents);
+    this.logItemChange(items);
 
     const timestamp = this.getTimestamp();
-    this.tickCollisionHistory(worldClock, timestamp, agents, ticksPerSecond);
-    this.tickItemHistory(worldClock, timestamp, items, ticksPerSecond);
+    this.logRewardHistory(worldClock, timestamp, agents, ticksPerSecond);
+    this.logItemHistory(worldClock, timestamp, items, ticksPerSecond);
     this.historicalDataTick++;
   }
 
-  private tickCollisions(agents: Array<RLAgent>): void {
+  private logRewards(agents: Array<RLAgent>): void {
     for (const [i, agent] of agents.entries()) {
-      this.recordAgentCollisions(i, agent);
+      this.recordAgentRewards(i, agent);
     }
   }
 
-  private tickItemChange(items: Array<Item>): void {
+  private logItemChange(items: Array<Item>): void {
     const [item0, item1] = this.getItemCounts(items);
     this.itemChange[0] += items.length;
     this.itemChange[1] += item0;
     this.itemChange[2] += item1;
   }
 
-  private recordAgentCollisions(id: number, agent: RLAgent): void {
-    this.collisions[id].totalItem0Collisions = agent.sensory.totalItem0Collisions;
-    this.collisions[id].totalItem1Collisions = agent.sensory.totalItem1Collisions;
+  private recordAgentRewards(id: number, agent: RLAgent): void {
+    this.rewards[id].totalItem0Collisions = agent.sensory.totalItem0Collisions;
+    this.rewards[id].totalItem1Collisions = agent.sensory.totalItem1Collisions;
 
-    this.collisions[id].item0Collisions += agent.sensory.item0CollisionsPerTick;
-    this.collisions[id].item1Collisions += agent.sensory.item1CollisionsPerTick;
-    this.collisions[id].wallDetectionReward += agent.sensory.wallDetectionRewardPerTick;
-    this.collisions[id].agentDetectionReward += agent.sensory.agentDetectionRewardPerTick;
+    this.rewards[id].item0Collisions += agent.sensory.item0CollisionsPerTick;
+    this.rewards[id].item1Collisions += agent.sensory.item1CollisionsPerTick;
+    this.rewards[id].wallDetectionReward += agent.sensory.wallDetectionRewardPerTick;
+    this.rewards[id].agentDetectionReward += agent.sensory.agentDetectionRewardPerTick;
   }
 
-  private tickCollisionHistory(worldClock: number, timestamp: number, agents: Array<RLAgent>, ticksPerSecond: number): void {
+  private logRewardHistory(worldClock: number, timestamp: number, agents: Array<RLAgent>, ticksPerSecond: number): void {
     if (worldClock % ticksPerSecond === 0) {
       for (const id of agents.keys()) {
-        this.recordAgentsCollisionHistory(id, timestamp, ticksPerSecond);
+        this.recordAgentsRewardHistory(id, timestamp, ticksPerSecond);
       }
-      this.resetCollisionRecords(agents);
+      this.resetRewardRecords(agents);
     }
   }
 
@@ -100,24 +100,24 @@ export class CollisionStats {
     return new Date().getTime();
   }
 
-  private recordAgentsCollisionHistory(id: number, timestamp: number, ticksPerSecond: number) {
-    this.collisionHistory[id].push(
+  private recordAgentsRewardHistory(id: number, timestamp: number, ticksPerSecond: number) {
+    this.rewardHistory[id].push(
       [timestamp,
-        this.collisions[id].item0Collisions,
-        this.collisions[id].item1Collisions,
-        this.collisions[id].wallDetectionReward,
-        this.collisions[id].agentDetectionReward]
+        this.rewards[id].item0Collisions,
+        this.rewards[id].item1Collisions,
+        this.rewards[id].wallDetectionReward,
+        this.rewards[id].agentDetectionReward]
     );
   }
 
-  private resetCollisionRecords(agents: Array<RLAgent>) {
-    this.collisions = new Array<Collisions>(agents.length);
+  private resetRewardRecords(agents: Array<RLAgent>) {
+    this.rewards = new Array<Rewards>(agents.length);
     for (const [id, agent] of agents.entries()) {
-      this.collisions[id] = new Collisions(agent.sensory.totalItem0Collisions, agent.sensory.totalItem1Collisions);
+      this.rewards[id] = new Rewards(agent.sensory.totalItem0Collisions, agent.sensory.totalItem1Collisions);
     }
   }
 
-  private tickItemHistory(worldClock: number, timestamp: number, items: Array<Item>, ticksPerSecond: number): void {
+  private logItemHistory(worldClock: number, timestamp: number, items: Array<Item>, ticksPerSecond: number): void {
     if (worldClock % ticksPerSecond === 0) {
       this.itemChangeHistory.push(
         [timestamp,
