@@ -43,11 +43,12 @@ git clone https://github.com/mvrahden/learning-agents.git
 
 ### Update the GitHub Page
 
-1. `ng build` the current code base.
-2. replace the compiled JavaScript bundles from the `./docs` directory with the created ones from the `./dist` directory. 
-3. in case of modified `assets`, also move those assets into the `./docs/assets` directory.
-4. delete the `./dist` directory again
-5. `git commit` and `git push`
+1. build the current code base:
+```
+ng build --prod --output-path=docs --base-href "https://mvrahden.github.io/learning-agents/"
+```
+2. restore the `404.html` file. 
+3. `git commit` and `git push`
 
 ## Dependencies
 
