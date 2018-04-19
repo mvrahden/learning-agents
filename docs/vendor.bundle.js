@@ -89994,7 +89994,7 @@ class World {
         this.items = this.items.filter((item, i) => { return item.isAlive(); });
     }
     spawnNewItemsRandomly() {
-        if (this.items.length < this.maxItems && recurrent_js_1.R.randf(0, 1) < 0.25) {
+        if (this.items.length < this.maxItems && recurrent_js_1.Utils.randf(0, 1) < 0.25) {
             this.spawnNewItem();
         }
     }
@@ -90068,7 +90068,7 @@ class Item extends WorldObject_1.WorldObject {
         this._isAlive = false;
     }
     shouldDieOfAge(worldClock) {
-        return this.getAge() > 5000 && worldClock % 100 === 0 && recurrent_js_1.R.randf(0, 1) < 0.1;
+        return this.getAge() > 5000 && worldClock % 100 === 0 && recurrent_js_1.Utils.randf(0, 1) < 0.1;
     }
 }
 exports.Item = Item;
@@ -90092,15 +90092,15 @@ class ItemFactory {
         this.height = height;
     }
     createRandomItem() {
-        const x = recurrent_js_1.R.randf(20, this.width - 20);
-        const y = recurrent_js_1.R.randf(20, this.height - 20);
-        const type = recurrent_js_1.R.randi(1, 3);
+        const x = recurrent_js_1.Utils.randf(20, this.width - 20);
+        const y = recurrent_js_1.Utils.randf(20, this.height - 20);
+        const type = recurrent_js_1.Utils.randi(1, 3);
         return new Item_1.Item(x, y, type);
     }
     createItem(items) {
         const type = this.determineItemType(items);
-        const x = recurrent_js_1.R.randf(20, this.width - 20);
-        const y = recurrent_js_1.R.randf(20, this.height - 20);
+        const x = recurrent_js_1.Utils.randf(20, this.width - 20);
+        const y = recurrent_js_1.Utils.randf(20, this.height - 20);
         return new Item_1.Item(x, y, type);
     }
     setBoundaryCondition(condition) {
@@ -90122,10 +90122,10 @@ class ItemFactory {
         }, 0);
     }
     determineTypeDependingOnCurrentValuationTarget(item1Ratio) {
-        if (item1Ratio < recurrent_js_1.R.randf(0.25, 0.5)) {
+        if (item1Ratio < recurrent_js_1.Utils.randf(0.25, 0.5)) {
             return 1;
         }
-        else if ((1 - item1Ratio) < recurrent_js_1.R.randf(0.25, 0.5)) {
+        else if ((1 - item1Ratio) < recurrent_js_1.Utils.randf(0.25, 0.5)) {
             return 2;
         }
         else {
@@ -90133,7 +90133,7 @@ class ItemFactory {
         }
     }
     getRandomItemType() {
-        return recurrent_js_1.R.randi(1, 3);
+        return recurrent_js_1.Utils.randi(1, 3);
     }
 }
 exports.ItemFactory = ItemFactory;
@@ -90382,7 +90382,7 @@ class RLAgentFactory {
         const env = new reinforce_js_1.DQNEnv(this.width, this.height, numberOfStates, this.numberOfActions);
         const opt = new reinforce_js_1.DQNOpt();
         opt.setTrainingMode(true);
-        opt.setNumberOfHiddenUnits(recurrent_js_1.R.randi(20, 100));
+        opt.setNumberOfHiddenUnits(recurrent_js_1.Utils.randi(20, 100));
         opt.setEpsilonDecay(1.0, 0.1, 1e6);
         opt.setEpsilon(0.05);
         opt.setGamma(0.9);
@@ -90427,8 +90427,8 @@ class RLAgentFactory {
         return new Sensory_1.Sensory(sensors);
     }
     createRandomDQNAgent() {
-        const x = recurrent_js_1.R.randf(20, this.width - 20);
-        const y = recurrent_js_1.R.randf(20, this.height - 20);
+        const x = recurrent_js_1.Utils.randf(20, this.width - 20);
+        const y = recurrent_js_1.Utils.randf(20, this.height - 20);
         if (this.tick % 2 !== 0) {
             this.tick++;
             return this.creatEyeDQNAgent(x, y);
@@ -91014,17 +91014,176 @@ exports.Point2D = Point2D;
 
 /***/ }),
 
+/***/ "./node_modules/recurrent-js/dist/DNN.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const Mat_1 = __webpack_require__("./node_modules/recurrent-js/dist/Mat.js");
+const FNNModel_1 = __webpack_require__("./node_modules/recurrent-js/dist/FNNModel.js");
+class DNN extends FNNModel_1.FNNModel {
+    constructor(opt) {
+        super(opt);
+    }
+    forward(state, graph) {
+        const activations = this.computeHiddenActivations(state, graph);
+        const output = this.computeOutput(activations, graph);
+        return output;
+    }
+    computeHiddenActivations(state, graph) {
+        const hiddenActivations = new Array();
+        for (let d = 0; d < this.hiddenUnits.length; d++) {
+            const inputVector = d === 0 ? state : hiddenActivations[d - 1];
+            const weightedInput = graph.mul(this.model.hidden.Wh[d], inputVector);
+            const biasedWeightedInput = graph.add(weightedInput, this.model.hidden.bh[d]);
+            const activation = graph.tanh(biasedWeightedInput);
+            hiddenActivations.push(activation);
+        }
+        return hiddenActivations;
+    }
+    static toJSON(dnn) {
+        const json = { hidden: { Wh: [], bh: [] }, decoder: { Wh: null, b: null } };
+        for (let i = 0; i < dnn.model.hidden.Wh.length; i++) {
+            json.hidden.Wh[i] = Mat_1.Mat.toJSON(dnn.model.hidden.Wh[i]);
+            json.hidden.bh[i] = Mat_1.Mat.toJSON(dnn.model.hidden.bh[i]);
+        }
+        json.decoder.Wh = Mat_1.Mat.toJSON(dnn.model.decoder.Wh);
+        json.decoder.b = Mat_1.Mat.toJSON(dnn.model.decoder.b);
+        return json;
+    }
+    static fromJSON(json) {
+        return new DNN(json);
+    }
+}
+exports.DNN = DNN;
+//# sourceMappingURL=DNN.js.map
+
+/***/ }),
+
+/***/ "./node_modules/recurrent-js/dist/FNNModel.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const Graph_1 = __webpack_require__("./node_modules/recurrent-js/dist/Graph.js");
+const Mat_1 = __webpack_require__("./node_modules/recurrent-js/dist/Mat.js");
+const RandMat_1 = __webpack_require__("./node_modules/recurrent-js/dist/RandMat.js");
+const Assertable_1 = __webpack_require__("./node_modules/recurrent-js/dist/utils/Assertable.js");
+class FNNModel extends Assertable_1.Assertable {
+    constructor(opt) {
+        super();
+        const needsBackprop = opt && opt.needsBackprop ? opt.needsBackprop : true;
+        this.model = this.initializeNetworkModel();
+        this.graph = new Graph_1.Graph(needsBackprop);
+        if (this.isFromJSON(opt)) {
+            this.initializeModelFromJSONObject(opt);
+        }
+        else if (this.isFreshInstanceCall(opt)) {
+            this.initializeModelAsFreshInstance(opt);
+        }
+        else {
+            FNNModel.assert(false, 'Improper input for DNN.');
+        }
+    }
+    initializeModelFromJSONObject(opt) {
+        this.initializeHiddenLayerFromJSON(opt);
+        this.model.decoder.Wh = Mat_1.Mat.fromJSON(opt['decoder']['Wh']);
+        this.model.decoder.b = Mat_1.Mat.fromJSON(opt['decoder']['b']);
+    }
+    initializeHiddenLayerFromJSON(opt) {
+        FNNModel.assert(!Array.isArray(opt['hidden']['Wh']), 'Wrong JSON Format to recreat Hidden Layer.');
+        for (let i = 0; i < opt.hidden.Wh.length; i++) {
+            this.model.hidden.Wh[i] = Mat_1.Mat.fromJSON(opt.hidden.Wh[i]);
+            this.model.hidden.bh[i] = Mat_1.Mat.fromJSON(opt.hidden.bh[i]);
+        }
+    }
+    update(alpha) {
+        this.updateHiddenUnits(alpha);
+        this.updateDecoder(alpha);
+    }
+    updateHiddenUnits(alpha) {
+        for (let i = 0; i < this.hiddenUnits.length; i++) {
+            this.model.hidden.Wh[i].update(alpha);
+            this.model.hidden.bh[i].update(alpha);
+        }
+    }
+    updateDecoder(alpha) {
+        this.model.decoder.Wh.update(alpha);
+        this.model.decoder.b.update(alpha);
+    }
+    initializeModelAsFreshInstance(opt) {
+        this.inputSize = opt.inputSize;
+        this.hiddenUnits = opt.hiddenUnits;
+        this.outputSize = opt.outputSize;
+        const mu = opt['mu'] ? opt['mu'] : 0;
+        const std = opt['std'] ? opt['std'] : 0.01;
+        this.initializeHiddenLayer(mu, std);
+        this.initializeDecoder(mu, std);
+    }
+    initializeDecoder(mu, std) {
+        this.model.decoder.Wh = new RandMat_1.RandMat(this.outputSize, this.hiddenUnits[this.hiddenUnits.length - 1], mu, std);
+        this.model.decoder.b = new Mat_1.Mat(this.outputSize, 1);
+    }
+    initializeHiddenLayer(mu, std) {
+        let hiddenSize;
+        for (let d = 0; d < this.hiddenUnits.length; d++) {
+            const previousSize = d === 0 ? this.inputSize : this.hiddenUnits[d - 1];
+            hiddenSize = this.hiddenUnits[d];
+            this.model.hidden.Wh[d] = new RandMat_1.RandMat(hiddenSize, previousSize, mu, std);
+            this.model.hidden.bh[d] = new Mat_1.Mat(hiddenSize, 1);
+        }
+    }
+    isFromJSON(opt) {
+        return FNNModel.has(opt, ['hidden', 'decoder'])
+            && FNNModel.has(opt.hidden, ['Wh', 'bh'])
+            && FNNModel.has(opt.decoder, ['Wh', 'b']);
+    }
+    isFreshInstanceCall(opt) {
+        return FNNModel.has(opt, ['inputSize', 'hiddenUnits', 'outputSize']);
+    }
+    initializeNetworkModel() {
+        return {
+            hidden: {
+                Wh: new Array(this.hiddenUnits.length),
+                bh: new Array(this.hiddenUnits.length)
+            },
+            decoder: {
+                Wh: null,
+                b: null
+            }
+        };
+    }
+    computeOutput(hiddenUnitActivations, graph) {
+        const weightedInputs = graph.mul(this.model.decoder.Wh, hiddenUnitActivations[hiddenUnitActivations.length - 1]);
+        return graph.add(weightedInputs, this.model.decoder.b);
+    }
+    static has(obj, keys) {
+        FNNModel.assert(obj, 'Improper input for DNN.');
+        for (const key of keys) {
+            if (Object.hasOwnProperty.call(obj, key)) {
+                continue;
+            }
+            return false;
+        }
+        return true;
+    }
+}
+exports.FNNModel = FNNModel;
+//# sourceMappingURL=FNNModel.js.map
+
+/***/ }),
+
 /***/ "./node_modules/recurrent-js/dist/Graph.js":
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const Assertable_1 = __webpack_require__("./node_modules/recurrent-js/dist/utils/Assertable.js");
 const Mat_1 = __webpack_require__("./node_modules/recurrent-js/dist/Mat.js");
-class Graph extends Assertable_1.Assertable {
+class Graph {
     constructor(needsBackprop = true) {
-        super();
         this.needsBackprop = needsBackprop;
         this.backprop = new Array();
     }
@@ -91178,73 +91337,157 @@ exports.Graph = Graph;
 Object.defineProperty(exports, "__esModule", { value: true });
 const Mat_1 = __webpack_require__("./node_modules/recurrent-js/dist/Mat.js");
 const RandMat_1 = __webpack_require__("./node_modules/recurrent-js/dist/RandMat.js");
-const NNModel_1 = __webpack_require__("./node_modules/recurrent-js/dist/NNModel.js");
-class LSTM extends NNModel_1.NNModel {
-    constructor(inputSize, hiddenSizes, outputSize, needsBackProp = true) {
-        super(needsBackProp);
-        this.inputSize = inputSize;
-        this.hiddenSizes = hiddenSizes;
-        this.outputSize = outputSize;
-        for (let i = 0; i < hiddenSizes.length; i++) {
-            const prevSize = i === 0 ? inputSize : hiddenSizes[i - 1];
-            const hiddenSize = hiddenSizes[i];
-            this.model.inputWx[i] = new RandMat_1.RandMat(hiddenSize, prevSize, 0, 0.08);
-            this.model.inputWh[i] = new RandMat_1.RandMat(hiddenSize, hiddenSize, 0, 0.08);
-            this.model.inputb[i] = new Mat_1.Mat(hiddenSize, 1);
-            this.model.forgetWx[i] = new RandMat_1.RandMat(hiddenSize, prevSize, 0, 0.08);
-            this.model.forgetWh[i] = new RandMat_1.RandMat(hiddenSize, hiddenSize, 0, 0.08);
-            this.model.forgetb[i] = new Mat_1.Mat(hiddenSize, 1);
-            this.model.outputWx[i] = new RandMat_1.RandMat(hiddenSize, prevSize, 0, 0.08);
-            this.model.outputWh[i] = new RandMat_1.RandMat(hiddenSize, hiddenSize, 0, 0.08);
-            this.model.outputb[i] = new Mat_1.Mat(hiddenSize, 1);
-            this.model.cellWx[i] = new RandMat_1.RandMat(hiddenSize, prevSize, 0, 0.08);
-            this.model.cellWh[i] = new RandMat_1.RandMat(hiddenSize, hiddenSize, 0, 0.08);
-            this.model.cellb[i] = new Mat_1.Mat(hiddenSize, 1);
-        }
-        this.model.decoderWh = new RandMat_1.RandMat(outputSize, (hiddenSizes.length - 1), 0, 0.08);
-        this.model.decoderb = new Mat_1.Mat(outputSize, 1);
+const RNNModel_1 = __webpack_require__("./node_modules/recurrent-js/dist/RNNModel.js");
+class LSTM extends RNNModel_1.RNNModel {
+    constructor(opt) {
+        super(opt);
     }
-    forward(observations, previousOutput, graph = this.graph) {
-        let hiddenPrevs, cellPrevs;
-        if (previousOutput == null || typeof previousOutput.h === 'undefined') {
-            hiddenPrevs = new Array();
-            cellPrevs = new Array();
-            for (let d = 0; d < this.hiddenSizes.length; d++) {
-                hiddenPrevs.push(new Mat_1.Mat(this.hiddenSizes[d], 1));
-                cellPrevs.push(new Mat_1.Mat(this.hiddenSizes[d], 1));
+    initializeNetworkModel() {
+        return {
+            hidden: {
+                input: {
+                    Wx: new Array(this.hiddenUnits.length),
+                    Wh: new Array(this.hiddenUnits.length),
+                    bh: new Array(this.hiddenUnits.length)
+                },
+                forget: {
+                    Wx: new Array(this.hiddenUnits.length),
+                    Wh: new Array(this.hiddenUnits.length),
+                    bh: new Array(this.hiddenUnits.length)
+                },
+                output: {
+                    Wx: new Array(this.hiddenUnits.length),
+                    Wh: new Array(this.hiddenUnits.length),
+                    bh: new Array(this.hiddenUnits.length)
+                },
+                cell: {
+                    Wx: new Array(this.hiddenUnits.length),
+                    Wh: new Array(this.hiddenUnits.length),
+                    bh: new Array(this.hiddenUnits.length)
+                },
+            },
+            decoder: {
+                Wh: null,
+                b: null
             }
+        };
+    }
+    isFromJSON(opt) {
+        return RNNModel_1.RNNModel.has(opt, ['hidden', 'decoder'])
+            && RNNModel_1.RNNModel.has(opt.hidden, ['input', 'forget', 'output', 'cell'])
+            && RNNModel_1.RNNModel.has(opt.input, ['Wh', 'Wx', 'bh'])
+            && RNNModel_1.RNNModel.has(opt.forget, ['Wh', 'Wx', 'bh'])
+            && RNNModel_1.RNNModel.has(opt.output, ['Wh', 'Wx', 'bh'])
+            && RNNModel_1.RNNModel.has(opt.cell, ['Wh', 'Wx', 'bh'])
+            && RNNModel_1.RNNModel.has(opt.decoder, ['Wh', 'b']);
+    }
+    initializeHiddenLayerFromJSON(opt) {
+        RNNModel_1.RNNModel.assert(opt.hidden.forget && opt.hidden.forget && opt.hidden.output && opt.hidden.cell, 'Wrong JSON Format to recreat Hidden Layer.');
+        this.isValid(opt.hidden.input);
+        this.isValid(opt.hidden.forget);
+        this.isValid(opt.hidden.output);
+        this.isValid(opt.hidden.cell);
+        for (let i = 0; i < opt.hidden.Wh.length; i++) {
+            this.model.hidden.input.Wx = Mat_1.Mat.fromJSON(opt.hidden.input.Wx);
+            this.model.hidden.input.Wh = Mat_1.Mat.fromJSON(opt.hidden.input.Wh);
+            this.model.hidden.input.bh = Mat_1.Mat.fromJSON(opt.hidden.input.bh);
+            this.model.hidden.forget.Wx = Mat_1.Mat.fromJSON(opt.hidden.Wx);
+            this.model.hidden.forget.Wh = Mat_1.Mat.fromJSON(opt.hidden.Wh);
+            this.model.hidden.forget.bh = Mat_1.Mat.fromJSON(opt.hidden.bh);
+            this.model.hidden.output.Wx = Mat_1.Mat.fromJSON(opt.hidden.Wx);
+            this.model.hidden.output.Wh = Mat_1.Mat.fromJSON(opt.hidden.Wh);
+            this.model.hidden.output.bh = Mat_1.Mat.fromJSON(opt.hidden.bh);
+            this.model.hidden.cell.Wx = Mat_1.Mat.fromJSON(opt.hidden.Wx);
+            this.model.hidden.cell.Wh = Mat_1.Mat.fromJSON(opt.hidden.Wh);
+            this.model.hidden.cell.bh = Mat_1.Mat.fromJSON(opt.hidden.hb);
+        }
+    }
+    isValid(component) {
+        RNNModel_1.RNNModel.assert(component && !Array.isArray(component['Wx']), 'Wrong JSON Format to recreat Hidden Layer.');
+        RNNModel_1.RNNModel.assert(component && !Array.isArray(component['Wh']), 'Wrong JSON Format to recreat Hidden Layer.');
+        RNNModel_1.RNNModel.assert(component && !Array.isArray(component['bh']), 'Wrong JSON Format to recreat Hidden Layer.');
+    }
+    initializeHiddenLayer() {
+        for (let i = 0; i < this.hiddenUnits.length; i++) {
+            const prevSize = i === 0 ? this.inputSize : this.hiddenUnits[i - 1];
+            const hiddenSize = this.hiddenUnits[i];
+            this.model.hidden.input.Wx[i] = new RandMat_1.RandMat(hiddenSize, prevSize, 0, 0.08);
+            this.model.hidden.input.Wh[i] = new RandMat_1.RandMat(hiddenSize, hiddenSize, 0, 0.08);
+            this.model.hidden.input.bh[i] = new Mat_1.Mat(hiddenSize, 1);
+            this.model.hidden.forget.Wx[i] = new RandMat_1.RandMat(hiddenSize, prevSize, 0, 0.08);
+            this.model.hidden.forget.Wh[i] = new RandMat_1.RandMat(hiddenSize, hiddenSize, 0, 0.08);
+            this.model.hidden.forget.bh[i] = new Mat_1.Mat(hiddenSize, 1);
+            this.model.hidden.output.Wx[i] = new RandMat_1.RandMat(hiddenSize, prevSize, 0, 0.08);
+            this.model.hidden.output.Wh[i] = new RandMat_1.RandMat(hiddenSize, hiddenSize, 0, 0.08);
+            this.model.hidden.output.bh[i] = new Mat_1.Mat(hiddenSize, 1);
+            this.model.hidden.cell.Wx[i] = new RandMat_1.RandMat(hiddenSize, prevSize, 0, 0.08);
+            this.model.hidden.cell.Wh[i] = new RandMat_1.RandMat(hiddenSize, hiddenSize, 0, 0.08);
+            this.model.hidden.cell.bh[i] = new Mat_1.Mat(hiddenSize, 1);
+        }
+    }
+    forward(state, previousInnerState, graph) {
+        graph = graph ? graph : this.graph;
+        const previousCells = this.getPreviousCellActivations(previousInnerState);
+        const previousHiddenUnits = this.getPreviousHiddenUnitActivations(previousInnerState);
+        const cells = new Array();
+        const hiddenUnits = new Array();
+        this.computeHiddenLayer(state, previousHiddenUnits, previousCells, hiddenUnits, cells, graph);
+        const output = this.computeOutput(hiddenUnits, graph);
+        return { 'hiddenUnits': hiddenUnits, 'cells': cells, 'output': output };
+    }
+    computeHiddenLayer(state, previousHiddenUnits, previousCells, hiddenUnits, cells, graph) {
+        for (let i = 0; i < this.hiddenUnits.length; i++) {
+            const inputVector = (i === 0) ? state : hiddenUnits[i - 1];
+            const hiddenPrev = previousHiddenUnits[i];
+            const previousCell = previousCells[i];
+            const h0 = graph.mul(this.model.hidden.input.Wx[i], inputVector);
+            const h1 = graph.mul(this.model.hidden.input.Wh[i], hiddenPrev);
+            const inputGate = graph.sigmoid(graph.add(graph.add(h0, h1), this.model.hidden.input.bh[i]));
+            const h2 = graph.mul(this.model.hidden.forget.Wx[i], inputVector);
+            const h3 = graph.mul(this.model.hidden.forget.Wh[i], hiddenPrev);
+            const forgetGate = graph.sigmoid(graph.add(graph.add(h2, h3), this.model.hidden.forget.bh[i]));
+            const h4 = graph.mul(this.model.hidden.output.Wx[i], inputVector);
+            const h5 = graph.mul(this.model.hidden.output.Wh[i], hiddenPrev);
+            const outputGate = graph.sigmoid(graph.add(graph.add(h4, h5), this.model.hidden.output.bh[i]));
+            const h6 = graph.mul(this.model.hidden.cell.Wx[i], inputVector);
+            const h7 = graph.mul(this.model.hidden.cell.Wh[i], hiddenPrev);
+            const cellWrite = graph.tanh(graph.add(graph.add(h6, h7), this.model.hidden.cell.bh[i]));
+            const retainCell = graph.eltmul(forgetGate, previousCell);
+            const writeCell = graph.eltmul(inputGate, cellWrite);
+            const cellActivations = graph.add(retainCell, writeCell);
+            const activations = graph.eltmul(outputGate, graph.tanh(cellActivations));
+            cells.push(cellActivations);
+            hiddenUnits.push(activations);
+        }
+    }
+    getPreviousHiddenUnitActivations(previousInnerState) {
+        let previousHiddenUnits;
+        if (this.givenPreviousInnerState(previousInnerState)) {
+            previousHiddenUnits = previousInnerState.hiddenUnits;
         }
         else {
-            hiddenPrevs = previousOutput.h;
-            cellPrevs = previousOutput.c;
+            previousHiddenUnits = new Array();
+            for (let d = 0; d < this.hiddenUnits.length; d++) {
+                previousHiddenUnits.push(new Mat_1.Mat(this.hiddenUnits[d], 1));
+            }
         }
-        const hidden = [];
-        const cell = [];
-        for (let d = 0; d < this.hiddenSizes.length; d++) {
-            const inputVector = (d === 0) ? observations : hidden[d - 1];
-            const hiddenPrev = hiddenPrevs[d];
-            const cellPrev = cellPrevs[d];
-            const h0 = graph.mul(this.model.inputWx[d], inputVector);
-            const h1 = graph.mul(this.model.inputWh[d], hiddenPrev);
-            const inputGate = graph.sigmoid(graph.add(graph.add(h0, h1), this.model.inputb[d]));
-            const h2 = graph.mul(this.model.forgetWx[d], inputVector);
-            const h3 = graph.mul(this.model.forgetWh[d], hiddenPrev);
-            const forgetGate = graph.sigmoid(graph.add(graph.add(h2, h3), this.model.forgetb[d]));
-            const h4 = graph.mul(this.model.outputWx[d], inputVector);
-            const h5 = graph.mul(this.model.outputWh[d], hiddenPrev);
-            const outputGate = graph.sigmoid(graph.add(graph.add(h4, h5), this.model.outputb[d]));
-            const h6 = graph.mul(this.model.cellWx[d], inputVector);
-            const h7 = graph.mul(this.model.cellWh[d], hiddenPrev);
-            const cellWrite = graph.tanh(graph.add(graph.add(h6, h7), this.model.cellb[d]));
-            const retainCell = graph.eltmul(forgetGate, cellPrev);
-            const writeCell = graph.eltmul(inputGate, cellWrite);
-            const cellD = graph.add(retainCell, writeCell);
-            const hiddenD = graph.eltmul(outputGate, graph.tanh(cellD));
-            hidden.push(hiddenD);
-            cell.push(cellD);
+        return previousHiddenUnits;
+    }
+    getPreviousCellActivations(previousInnerState) {
+        let previousCells;
+        if (this.givenPreviousInnerState(previousInnerState)) {
+            previousCells = previousInnerState.cells;
         }
-        const output = graph.add(graph.mul(this.model.decoderWh, hidden[hidden.length - 1]), this.model.decoderb);
-        return { 'h': hidden, 'c': cell, 'o': output };
+        else {
+            previousCells = new Array();
+            for (let d = 0; d < this.hiddenUnits.length; d++) {
+                previousCells.push(new Mat_1.Mat(this.hiddenUnits[d], 1));
+            }
+        }
+        return previousCells;
+    }
+    givenPreviousInnerState(previousInnerState) {
+        return previousInnerState || typeof previousInnerState.hiddenUnits !== 'undefined';
     }
 }
 exports.LSTM = LSTM;
@@ -91259,24 +91502,24 @@ exports.LSTM = LSTM;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const Assertable_1 = __webpack_require__("./node_modules/recurrent-js/dist/utils/Assertable.js");
-const R_1 = __webpack_require__("./node_modules/recurrent-js/dist/R.js");
+const Utils_1 = __webpack_require__("./node_modules/recurrent-js/dist/Utils.js");
 class Mat extends Assertable_1.Assertable {
     constructor(rows, cols) {
         super();
         this.rows = rows;
         this.cols = cols;
         this.length = rows * cols;
-        this.w = R_1.R.zeros(this.length);
-        this.dw = R_1.R.zeros(this.length);
+        this.w = Utils_1.Utils.zeros(this.length);
+        this.dw = Utils_1.Utils.zeros(this.length);
     }
     get(row, col) {
         const ix = this.getIndexBy(row, col);
-        Mat.assert(ix >= 0 && ix < this.w.length);
+        Mat.assert(ix >= 0 && ix < this.w.length, '[class:Mat] get: index out of bounds.');
         return this.w[ix];
     }
     set(row, col, v) {
         const ix = this.getIndexBy(row, col);
-        Mat.assert(ix >= 0 && ix < this.w.length);
+        Mat.assert(ix >= 0 && ix < this.w.length, '[class:Mat] set: index out of bounds.');
         this.w[ix] = v;
     }
     getIndexBy(row, col) {
@@ -91317,7 +91560,7 @@ class Mat extends Assertable_1.Assertable {
         return mat;
     }
     static add(m1, m2) {
-        Mat.assert(m1.w.length === m2.w.length, 'matadd dimensions misaligned');
+        Mat.assert(m1.w.length === m2.w.length && m1.rows === m2.rows, '[class:Mat] add: dimensions misaligned');
         const out = new Mat(m1.rows, m1.cols);
         for (let i = 0; i < m1.w.length; i++) {
             out.w[i] = m1.w[i] + m2.w[i];
@@ -91342,7 +91585,7 @@ class Mat extends Assertable_1.Assertable {
         return out;
     }
     static mul(m1, m2) {
-        Mat.assert(m1.cols === m2.rows, 'matmul dimensions misaligned');
+        Mat.assert(m1.cols === m2.rows, '[class:Mat] mul: dimensions misaligned');
         const out = new Mat(m1.rows, m2.cols);
         for (let row = 0; row < m1.rows; row++) {
             for (let col = 0; col < m2.cols; col++) {
@@ -91362,8 +91605,16 @@ class Mat extends Assertable_1.Assertable {
         }
         return out;
     }
+    static gauss(m, std) {
+        Mat.assert(m.w.length === std.w.length, '[class:Mat] gauss: dimensions misaligned');
+        const out = new Mat(m.rows, m.cols);
+        for (let i = 0; i < m.w.length; i++) {
+            out.w[i] = Utils_1.Utils.randn(m.w[i], std.w[i]);
+        }
+        return out;
+    }
     static dot(m1, m2) {
-        Mat.assert(m1.w.length === m2.w.length, 'matdot dimensions misaligned');
+        Mat.assert(m1.w.length === m2.w.length, '[class:Mat] dot: dimensions misaligned');
         const out = new Mat(1, 1);
         let dot = 0.0;
         for (let i = 0; i < m1.w.length; i++) {
@@ -91373,7 +91624,7 @@ class Mat extends Assertable_1.Assertable {
         return out;
     }
     static eltmul(m1, m2) {
-        Mat.assert(m1.w.length === m2.w.length, 'mateltmul dimensions misaligned');
+        Mat.assert(m1.w.length === m2.w.length && m1.rows === m2.rows, '[class:Mat] eltmul: dimensions misaligned');
         const out = new Mat(m1.rows, m1.cols);
         for (let i = 0; i < m1.w.length; i++) {
             out.w[i] = m1.w[i] * m2.w[i];
@@ -91381,7 +91632,7 @@ class Mat extends Assertable_1.Assertable {
         return out;
     }
     static rowPluck(m, rowIndex) {
-        Mat.assert(rowIndex >= 0 && rowIndex < m.rows, 'mateltmul dimensions misaligned');
+        Mat.assert(rowIndex >= 0 && rowIndex < m.rows, '[class:Mat] rowPluck: dimensions misaligned');
         const out = new Mat(m.cols, 1);
         for (let i = 0; i < m.cols; i++) {
             out.w[i] = m.w[m.cols * rowIndex + i];
@@ -91391,24 +91642,6 @@ class Mat extends Assertable_1.Assertable {
 }
 exports.Mat = Mat;
 //# sourceMappingURL=Mat.js.map
-
-/***/ }),
-
-/***/ "./node_modules/recurrent-js/dist/NNModel.js":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-const Graph_1 = __webpack_require__("./node_modules/recurrent-js/dist/Graph.js");
-class NNModel {
-    constructor(needsBackProp = true) {
-        this.model = {};
-        this.graph = new Graph_1.Graph(needsBackProp);
-    }
-}
-exports.NNModel = NNModel;
-//# sourceMappingURL=NNModel.js.map
 
 /***/ }),
 
@@ -91426,20 +91659,35 @@ class Net {
         this.b1 = null;
         this.W2 = null;
         this.b2 = null;
-        if (Net.has(opt, ['W1', 'b1', 'W2', 'b2'])) {
-            this.W1 = Mat_1.Mat.fromJSON(opt['W1']);
-            this.b1 = Mat_1.Mat.fromJSON(opt['b1']);
-            this.W2 = Mat_1.Mat.fromJSON(opt['W2']);
-            this.b2 = Mat_1.Mat.fromJSON(opt['b2']);
+        if (this.isFromJSON(opt)) {
+            this.initializeFromJSONObject(opt);
         }
-        else if (Net.has(opt, ['inputSize', 'hiddenSize', 'outputSize'])) {
-            const mu = opt['mu'] ? opt['mu'] : 0;
-            const std = opt['std'] ? opt['std'] : 0.01;
-            this.W1 = new RandMat_1.RandMat(opt['hiddenSize'], opt['inputSize'], mu, std);
-            this.b1 = new Mat_1.Mat(opt['hiddenSize'], 1);
-            this.W2 = new RandMat_1.RandMat(opt['outputSize'], opt['hiddenSize'], mu, std);
-            this.b2 = new Mat_1.Mat(opt['outputSize'], 1);
+        else if (this.isFreshInstanceCall(opt)) {
+            this.initializeAsFreshInstance(opt);
         }
+        else {
+            this.initializeAsFreshInstance({ inputSize: 1, hiddenUnits: 1, outputSize: 1 });
+        }
+    }
+    isFromJSON(opt) {
+        return Net.has(opt, ['W1', 'b1', 'W2', 'b2']);
+    }
+    isFreshInstanceCall(opt) {
+        return Net.has(opt, ['inputSize', 'hiddenUnits', 'outputSize']);
+    }
+    initializeFromJSONObject(opt) {
+        this.W1 = Mat_1.Mat.fromJSON(opt['W1']);
+        this.b1 = Mat_1.Mat.fromJSON(opt['b1']);
+        this.W2 = Mat_1.Mat.fromJSON(opt['W2']);
+        this.b2 = Mat_1.Mat.fromJSON(opt['b2']);
+    }
+    initializeAsFreshInstance(opt) {
+        const mu = opt['mu'] ? opt['mu'] : 0;
+        const std = opt['std'] ? opt['std'] : 0.01;
+        this.W1 = new RandMat_1.RandMat(opt['hiddenUnits'], opt['inputSize'], mu, std);
+        this.b1 = new Mat_1.Mat(opt['hiddenUnits'], 1);
+        this.W2 = new RandMat_1.RandMat(opt['outputSize'], opt['hiddenUnits'], mu, std);
+        this.b2 = new Mat_1.Mat(opt['outputSize'], 1);
     }
     update(alpha) {
         this.W1.update(alpha);
@@ -91455,12 +91703,16 @@ class Net {
         json['b2'] = Mat_1.Mat.toJSON(net.b2);
         return json;
     }
-    forward(observations, graph) {
-        const weightedStates = graph.mul(this.W1, observations);
-        const a1mat = graph.add(weightedStates, this.b1);
+    forward(state, graph) {
+        const weightedInput = graph.mul(this.W1, state);
+        const a1mat = graph.add(weightedInput, this.b1);
         const h1mat = graph.tanh(a1mat);
-        const weightedActivations = graph.mul(this.W2, h1mat);
-        const a2Mat = graph.add(weightedActivations, this.b2);
+        const a2Mat = this.computeOutput(h1mat, graph);
+        return a2Mat;
+    }
+    computeOutput(hiddenUnits, graph) {
+        const weightedActivation = graph.mul(this.W2, hiddenUnits);
+        const a2Mat = graph.add(weightedActivation, this.b2);
         return a2Mat;
     }
     static fromJSON(json) {
@@ -91481,91 +91733,6 @@ exports.Net = Net;
 
 /***/ }),
 
-/***/ "./node_modules/recurrent-js/dist/R.js":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-const Assertable_1 = __webpack_require__("./node_modules/recurrent-js/dist/utils/Assertable.js");
-class R extends Assertable_1.Assertable {
-    static randf(min, max) { return Math.random() * (max - min) + min; }
-    static randi(min, max) { return Math.floor(R.randf(min, max)); }
-    static randn(mu, std) { return mu + R.gaussRandom() * std; }
-    static gaussRandom() {
-        if (R.returnV) {
-            R.returnV = false;
-            return R.vVal;
-        }
-        const u = 2 * Math.random() - 1;
-        const v = 2 * Math.random() - 1;
-        const r = u * u + v * v;
-        if (r === 0 || r > 1) {
-            return R.gaussRandom();
-        }
-        const c = Math.sqrt(-2 * Math.log(r) / r);
-        R.vVal = v * c;
-        R.returnV = true;
-        return u * c;
-    }
-    static fillRandn(m, mu, std) { for (let i = 0; i < m.w.length; i++) {
-        m.w[i] = R.randn(mu, std);
-    } }
-    static fillRand(m, lo, hi) { for (let i = 0; i < m.w.length; i++) {
-        m.w[i] = R.randf(lo, hi);
-    } }
-    static gradFillConst(m, c) { for (let i = 0; i < m.dw.length; i++) {
-        m.dw[i] = c;
-    } }
-    static setConst(arr, c) {
-        for (let i = 0; i < arr.length; i++) {
-            arr[i] = c;
-        }
-    }
-    static zeros(n) {
-        if (typeof (n) === 'undefined' || isNaN(n)) {
-            return [];
-        }
-        if (typeof ArrayBuffer === 'undefined') {
-            const arr = new Array(n);
-            R.setConst(arr, 0);
-            return arr;
-        }
-        else {
-            return new Float64Array(n);
-        }
-    }
-    static maxi(w) {
-        let maxv = w[0];
-        let maxix = 0;
-        for (let i = 1; i < w.length; i++) {
-            const v = w[i];
-            if (v > maxv) {
-                maxix = i;
-                maxv = v;
-            }
-        }
-        return maxix;
-    }
-    static sampleWeighted(p) {
-        const r = Math.random();
-        let c = 0.0;
-        for (let i = 0; i < p.length; i++) {
-            c += p[i];
-            if (c >= r) {
-                return i;
-            }
-        }
-        this.assert(false, 'wtf');
-    }
-}
-R.returnV = false;
-R.vVal = 0.0;
-exports.R = R;
-//# sourceMappingURL=R.js.map
-
-/***/ }),
-
 /***/ "./node_modules/recurrent-js/dist/RNN.js":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -91574,48 +91741,151 @@ exports.R = R;
 Object.defineProperty(exports, "__esModule", { value: true });
 const RandMat_1 = __webpack_require__("./node_modules/recurrent-js/dist/RandMat.js");
 const Mat_1 = __webpack_require__("./node_modules/recurrent-js/dist/Mat.js");
-const NNModel_1 = __webpack_require__("./node_modules/recurrent-js/dist/NNModel.js");
-class RNN extends NNModel_1.NNModel {
-    constructor(inputSize, hiddenSizes, outputSize, needsBackProp = true) {
-        super(needsBackProp);
-        this.hiddenSizes = hiddenSizes;
-        let hiddenSize;
-        for (let d = 0; d < this.hiddenSizes.length; d++) {
-            const previousSize = d === 0 ? inputSize : this.hiddenSizes[d - 1];
-            hiddenSize = this.hiddenSizes[d];
-            this.model.hiddenWx[d] = new RandMat_1.RandMat(hiddenSize, previousSize, 0, 0.08);
-            this.model.hiddenWh[d] = new RandMat_1.RandMat(hiddenSize, hiddenSize, 0, 0.08);
-            this.model.hiddenbh[d] = new Mat_1.Mat(hiddenSize, 1);
-        }
-        this.model.decoderWh = new RandMat_1.RandMat(outputSize, hiddenSize, 0, 0.08);
-        this.model.decoderbd = new Mat_1.Mat(outputSize, 1);
+const RNNModel_1 = __webpack_require__("./node_modules/recurrent-js/dist/RNNModel.js");
+class RNN extends RNNModel_1.RNNModel {
+    constructor(opt) {
+        super(opt);
     }
-    forward(observations, previousOutput, graph = this.graph) {
-        let hiddenPrevs;
-        if (typeof previousOutput.h === 'undefined') {
-            hiddenPrevs = [];
-            for (let d = 0; d < this.hiddenSizes.length; d++) {
-                hiddenPrevs.push(new Mat_1.Mat(this.hiddenSizes[d], 1));
+    isFromJSON(opt) {
+        return RNNModel_1.RNNModel.has(opt, ['hidden', 'decoder'])
+            && RNNModel_1.RNNModel.has(opt.hidden, ['Wh', 'Wx', 'bh'])
+            && RNNModel_1.RNNModel.has(opt.decoder, ['Wh', 'b']);
+    }
+    initializeHiddenLayerFromJSON(opt) {
+        RNNModel_1.RNNModel.assert(!Array.isArray(opt['hidden']['Wh']), 'Wrong JSON Format to recreat Hidden Layer.');
+        RNNModel_1.RNNModel.assert(!Array.isArray(opt['hidden']['Wx']), 'Wrong JSON Format to recreat Hidden Layer.');
+        RNNModel_1.RNNModel.assert(!Array.isArray(opt['hidden']['bh']), 'Wrong JSON Format to recreat Hidden Layer.');
+        for (let i = 0; i < opt.hidden.Wh.length; i++) {
+            this.model.hidden.Wx[i] = Mat_1.Mat.fromJSON(opt.hidden.Wx[i]);
+            this.model.hidden.Wh[i] = Mat_1.Mat.fromJSON(opt.hidden.Wh[i]);
+            this.model.hidden.bh[i] = Mat_1.Mat.fromJSON(opt.hidden.bh[i]);
+        }
+    }
+    initializeNetworkModel() {
+        return {
+            hidden: {
+                Wx: new Array(this.hiddenUnits.length),
+                Wh: new Array(this.hiddenUnits.length),
+                bh: new Array(this.hiddenUnits.length)
+            },
+            decoder: {
+                Wh: null,
+                b: null
+            }
+        };
+    }
+    initializeHiddenLayer() {
+        let hiddenSize;
+        for (let d = 0; d < this.hiddenUnits.length; d++) {
+            const previousSize = d === 0 ? this.inputSize : this.hiddenUnits[d - 1];
+            hiddenSize = this.hiddenUnits[d];
+            this.model.hidden.Wx[d] = new RandMat_1.RandMat(hiddenSize, previousSize, 0, 0.08);
+            this.model.hidden.Wh[d] = new RandMat_1.RandMat(hiddenSize, hiddenSize, 0, 0.08);
+            this.model.hidden.bh[d] = new Mat_1.Mat(hiddenSize, 1);
+        }
+    }
+    forward(state, previousInnerState, graph) {
+        graph = graph ? graph : this.graph;
+        const previousHiddenUnits = this.getPreviousHiddenUnits(previousInnerState);
+        const hiddenActivations = this.computeHiddenActivations(state, previousHiddenUnits, graph);
+        const output = this.computeOutput(hiddenActivations, graph);
+        return { 'hiddenUnits': hiddenActivations, 'output': output };
+    }
+    getPreviousHiddenUnits(previousInnerState) {
+        let previousHiddenUnits;
+        if (typeof previousInnerState.hiddenUnits === 'undefined') {
+            previousHiddenUnits = new Array();
+            for (let d = 0; d < this.hiddenUnits.length; d++) {
+                previousHiddenUnits.push(new Mat_1.Mat(this.hiddenUnits[d], 1));
             }
         }
         else {
-            hiddenPrevs = previousOutput.h;
+            previousHiddenUnits = previousInnerState.hiddenUnits;
         }
-        const hidden = new Array();
-        for (let d = 0; d < this.hiddenSizes.length; d++) {
-            const inputVector = d === 0 ? observations : hidden[d - 1];
-            const hiddenPrev = hiddenPrevs[d];
-            const h0 = graph.mul(this.model.hiddenWx[d], inputVector);
-            const h1 = graph.mul(this.model.hiddenWh[d], hiddenPrev);
-            const hiddenD = graph.relu(graph.add(graph.add(h0, h1), this.model.hiddenbh[d]));
-            hidden.push(hiddenD);
+        return previousHiddenUnits;
+    }
+    computeHiddenActivations(state, previousHiddenUnits, graph) {
+        const hiddenActivations = new Array();
+        for (let d = 0; d < this.hiddenUnits.length; d++) {
+            const inputVector = d === 0 ? state : hiddenActivations[d - 1];
+            const hiddenPrev = previousHiddenUnits[d];
+            const h0 = graph.mul(this.model.hidden.Wx[d], inputVector);
+            const h1 = graph.mul(this.model.hidden.Wh[d], hiddenPrev);
+            const activation = graph.relu(graph.add(graph.add(h0, h1), this.model.hidden.bh[d]));
+            hiddenActivations.push(activation);
         }
-        const output = graph.add(graph.mul(this.model.decoderWh, hidden[hidden.length - 1]), this.model.decoderbd);
-        return { 'h': hidden, 'o': output, 'c': null };
+        return hiddenActivations;
     }
 }
 exports.RNN = RNN;
 //# sourceMappingURL=RNN.js.map
+
+/***/ }),
+
+/***/ "./node_modules/recurrent-js/dist/RNNModel.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const Graph_1 = __webpack_require__("./node_modules/recurrent-js/dist/Graph.js");
+const Mat_1 = __webpack_require__("./node_modules/recurrent-js/dist/Mat.js");
+const RandMat_1 = __webpack_require__("./node_modules/recurrent-js/dist/RandMat.js");
+const Assertable_1 = __webpack_require__("./node_modules/recurrent-js/dist/utils/Assertable.js");
+class RNNModel extends Assertable_1.Assertable {
+    constructor(opt) {
+        super();
+        const needsBackprop = opt && opt.needsBackprop ? opt.needsBackprop : true;
+        this.model = this.initializeNetworkModel();
+        this.graph = new Graph_1.Graph(needsBackprop);
+        if (this.isFromJSON(opt)) {
+            this.initializeModelFromJSONObject(opt);
+        }
+        else if (this.isFreshInstanceCall(opt)) {
+            this.initializeModelAsFreshInstance(opt);
+        }
+        else {
+            RNNModel.assert(false, 'Improper input for DNN.');
+        }
+    }
+    initializeModelFromJSONObject(opt) {
+        this.initializeHiddenLayerFromJSON(opt);
+        this.model.decoder.Wh = Mat_1.Mat.fromJSON(opt['decoder']['Wh']);
+        this.model.decoder.b = Mat_1.Mat.fromJSON(opt['decoder']['b']);
+    }
+    isFreshInstanceCall(opt) {
+        return RNNModel.has(opt, ['inputSize', 'hiddenUnits', 'outputSize']);
+    }
+    initializeModelAsFreshInstance(opt) {
+        this.inputSize = opt.inputSize;
+        this.hiddenUnits = opt.hiddenUnits;
+        this.outputSize = opt.outputSize;
+        const mu = opt['mu'] ? opt['mu'] : 0;
+        const std = opt['std'] ? opt['std'] : 0.01;
+        this.initializeHiddenLayer(mu, std);
+        this.initializeDecoder(mu, std);
+    }
+    initializeDecoder(mu, std) {
+        this.model.decoder.Wh = new RandMat_1.RandMat(this.outputSize, (this.hiddenUnits.length - 1), mu, std);
+        this.model.decoder.b = new Mat_1.Mat(this.outputSize, 1);
+    }
+    computeOutput(hiddenUnitActivations, graph) {
+        const weightedInputs = graph.mul(this.model.decoder.Wh, hiddenUnitActivations[hiddenUnitActivations.length - 1]);
+        return graph.add(weightedInputs, this.model.decoder.b);
+    }
+    static has(obj, keys) {
+        RNNModel.assert(obj, 'Improper input for DNN.');
+        for (const key of keys) {
+            if (Object.hasOwnProperty.call(obj, key)) {
+                continue;
+            }
+            return false;
+        }
+        return true;
+    }
+}
+exports.RNNModel = RNNModel;
+//# sourceMappingURL=RNNModel.js.map
 
 /***/ }),
 
@@ -91626,11 +91896,11 @@ exports.RNN = RNN;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const Mat_1 = __webpack_require__("./node_modules/recurrent-js/dist/Mat.js");
-const R_1 = __webpack_require__("./node_modules/recurrent-js/dist/R.js");
+const Utils_1 = __webpack_require__("./node_modules/recurrent-js/dist/Utils.js");
 class RandMat extends Mat_1.Mat {
     constructor(n, d, mu, std) {
         super(n, d);
-        R_1.R.fillRandn(this, mu, std);
+        Utils_1.Utils.fillRandn(this.w, mu, std);
     }
 }
 exports.RandMat = RandMat;
@@ -91708,12 +91978,108 @@ exports.Solver = Solver;
 
 /***/ }),
 
+/***/ "./node_modules/recurrent-js/dist/Utils.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const Assertable_1 = __webpack_require__("./node_modules/recurrent-js/dist/utils/Assertable.js");
+class Utils extends Assertable_1.Assertable {
+    static randf(min, max) {
+        return Math.random() * (max - min) + min;
+    }
+    static randi(min, max) {
+        return Math.floor(Utils.randf(min, max));
+    }
+    static randn(mu, std) {
+        return mu + Utils.gaussRandom() * std;
+    }
+    static gaussRandom() {
+        if (Utils.returnV) {
+            Utils.returnV = false;
+            return Utils.vVal;
+        }
+        const u = 2 * Math.random() - 1;
+        const v = 2 * Math.random() - 1;
+        const r = u * u + v * v;
+        if (r === 0 || r > 1) {
+            return Utils.gaussRandom();
+        }
+        const c = Math.sqrt(-2 * Math.log(r) / r);
+        Utils.vVal = v * c;
+        Utils.returnV = true;
+        return u * c;
+    }
+    static fillRandn(arr, mu, std) {
+        for (let i = 0; i < arr.length; i++) {
+            arr[i] = Utils.randn(mu, std);
+        }
+    }
+    static fillRand(arr, lo, hi) {
+        for (let i = 0; i < arr.length; i++) {
+            arr[i] = Utils.randf(lo, hi);
+        }
+    }
+    static fillConst(arr, c) {
+        for (let i = 0; i < arr.length; i++) {
+            arr[i] = c;
+        }
+    }
+    static zeros(n) {
+        if (typeof (n) === 'undefined' || isNaN(n)) {
+            return [];
+        }
+        if (typeof ArrayBuffer === 'undefined') {
+            const arr = new Array(n);
+            Utils.fillConst(arr, 0);
+            return arr;
+        }
+        else {
+            return new Float64Array(n);
+        }
+    }
+    static maxi(w) {
+        let maxv = w[0];
+        let maxix = 0;
+        for (let i = 1; i < w.length; i++) {
+            const v = w[i];
+            if (v > maxv) {
+                maxix = i;
+                maxv = v;
+            }
+        }
+        return maxix;
+    }
+    static sampleWeighted(p) {
+        const r = Math.random();
+        let c = 0.0;
+        for (let i = 0; i < p.length; i++) {
+            c += p[i];
+            if (c >= r) {
+                return i;
+            }
+        }
+        Utils.assert(false, 'weighted sampling went wrong');
+    }
+}
+Utils.returnV = false;
+Utils.vVal = 0.0;
+exports.Utils = Utils;
+//# sourceMappingURL=Utils.js.map
+
+/***/ }),
+
 /***/ "./node_modules/recurrent-js/dist/index.js":
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+const DNN_1 = __webpack_require__("./node_modules/recurrent-js/dist/DNN.js");
+exports.DNN = DNN_1.DNN;
+const FNNModel_1 = __webpack_require__("./node_modules/recurrent-js/dist/FNNModel.js");
+exports.FNNModel = FNNModel_1.FNNModel;
 const Graph_1 = __webpack_require__("./node_modules/recurrent-js/dist/Graph.js");
 exports.Graph = Graph_1.Graph;
 const LSTM_1 = __webpack_require__("./node_modules/recurrent-js/dist/LSTM.js");
@@ -91722,14 +92088,14 @@ const Mat_1 = __webpack_require__("./node_modules/recurrent-js/dist/Mat.js");
 exports.Mat = Mat_1.Mat;
 const Net_1 = __webpack_require__("./node_modules/recurrent-js/dist/Net.js");
 exports.Net = Net_1.Net;
-const NNModel_1 = __webpack_require__("./node_modules/recurrent-js/dist/NNModel.js");
-exports.NNModel = NNModel_1.NNModel;
-const R_1 = __webpack_require__("./node_modules/recurrent-js/dist/R.js");
-exports.R = R_1.R;
+const Utils_1 = __webpack_require__("./node_modules/recurrent-js/dist/Utils.js");
+exports.Utils = Utils_1.Utils;
 const RandMat_1 = __webpack_require__("./node_modules/recurrent-js/dist/RandMat.js");
 exports.RandMat = RandMat_1.RandMat;
 const RNN_1 = __webpack_require__("./node_modules/recurrent-js/dist/RNN.js");
 exports.RNN = RNN_1.RNN;
+const RNNModel_1 = __webpack_require__("./node_modules/recurrent-js/dist/RNNModel.js");
+exports.RNNModel = RNNModel_1.RNNModel;
 const Solver_1 = __webpack_require__("./node_modules/recurrent-js/dist/Solver.js");
 exports.Solver = Solver_1.Solver;
 //# sourceMappingURL=index.js.map
@@ -91941,7 +92307,7 @@ class DQNSolver extends Solver_1.Solver {
         this.numberOfActions = this.env.get('numberOfActions');
         const netOpts = {
             inputSize: this.numberOfStates,
-            hiddenSize: this.numberOfHiddenUnits,
+            hiddenUnits: this.numberOfHiddenUnits,
             outputSize: this.numberOfActions
         };
         this.net = new recurrent_js_1.Net(netOpts);
@@ -91985,11 +92351,11 @@ class DQNSolver extends Solver_1.Solver {
     epsilonGreedyActionPolicy(stateVector) {
         let actionIndex = 0;
         if (Math.random() < this.currentEpsilon()) {
-            actionIndex = recurrent_js_1.R.randi(0, this.numberOfActions);
+            actionIndex = recurrent_js_1.Utils.randi(0, this.numberOfActions);
         }
         else {
             const actionVector = this.forwardQ(stateVector);
-            actionIndex = recurrent_js_1.R.maxi(actionVector.w);
+            actionIndex = recurrent_js_1.Utils.maxi(actionVector.w);
         }
         return actionIndex;
     }
@@ -92056,7 +92422,7 @@ class DQNSolver extends Solver_1.Solver {
     }
     getTargetQ(s1, r0) {
         const targetActionVector = this.forwardQ(s1);
-        const targetActionIndex = recurrent_js_1.R.maxi(targetActionVector.w);
+        const targetActionIndex = recurrent_js_1.Utils.maxi(targetActionVector.w);
         const qMax = r0 + this.gamma * targetActionVector.w[targetActionIndex];
         return qMax;
     }
@@ -92101,7 +92467,7 @@ class DQNSolver extends Solver_1.Solver {
     }
     limitedSampledReplayLearning() {
         for (let i = 0; i < this.replaySteps; i++) {
-            const ri = recurrent_js_1.R.randi(0, this.longTermMemory.length);
+            const ri = recurrent_js_1.Utils.randi(0, this.longTermMemory.length);
             const sarsa = this.longTermMemory[ri];
             this.learnFromSarsaTuple(sarsa);
         }
@@ -92266,17 +92632,17 @@ class TDSolver extends Solver_1.Solver {
     reset() {
         this.numberOfStates = this.env.get('numberOfStates');
         this.numberOfActions = this.env.get('numerOfActions');
-        this.Q = recurrent_js_1.R.zeros(this.numberOfStates * this.numberOfActions);
+        this.Q = recurrent_js_1.Utils.zeros(this.numberOfStates * this.numberOfActions);
         if (this.qInitValue !== 0) {
-            recurrent_js_1.R.setConst(this.Q, this.qInitValue);
+            recurrent_js_1.Utils.fillConst(this.Q, this.qInitValue);
         }
-        this.randomPolicies = recurrent_js_1.R.zeros(this.numberOfStates * this.numberOfActions);
-        this.eligibilityTraces = recurrent_js_1.R.zeros(this.numberOfStates * this.numberOfActions);
-        this.envModelS = recurrent_js_1.R.zeros(this.numberOfStates * this.numberOfActions);
-        recurrent_js_1.R.setConst(this.envModelS, -1);
-        this.envModelR = recurrent_js_1.R.zeros(this.numberOfStates * this.numberOfActions);
+        this.randomPolicies = recurrent_js_1.Utils.zeros(this.numberOfStates * this.numberOfActions);
+        this.eligibilityTraces = recurrent_js_1.Utils.zeros(this.numberOfStates * this.numberOfActions);
+        this.envModelS = recurrent_js_1.Utils.zeros(this.numberOfStates * this.numberOfActions);
+        recurrent_js_1.Utils.fillConst(this.envModelS, -1);
+        this.envModelR = recurrent_js_1.Utils.zeros(this.numberOfStates * this.numberOfActions);
         this.saSeen = [];
-        this.pq = recurrent_js_1.R.zeros(this.numberOfStates * this.numberOfActions);
+        this.pq = recurrent_js_1.Utils.zeros(this.numberOfStates * this.numberOfActions);
         for (let state = 0; state < this.numberOfStates; state++) {
             const allowedActions = this.env.allowedActions(state);
             for (let i = 0; i < allowedActions.length; i++) {
@@ -92291,7 +92657,7 @@ class TDSolver extends Solver_1.Solver {
     }
     decide(state) {
         const allowedActions = this.env.allowedActions(state);
-        const probs = [];
+        const probs = new Array();
         for (let i = 0; i < allowedActions.length; i++) {
             probs.push(this.randomPolicies[allowedActions[i] * this.numberOfStates + state]);
         }
@@ -92308,11 +92674,11 @@ class TDSolver extends Solver_1.Solver {
     epsilonGreedyActionPolicy(poss, probs) {
         let actionIndex = 0;
         if (Math.random() < this.epsilon) {
-            actionIndex = poss[recurrent_js_1.R.randi(0, poss.length)];
+            actionIndex = poss[recurrent_js_1.Utils.randi(0, poss.length)];
             this.explored = true;
         }
         else {
-            actionIndex = poss[recurrent_js_1.R.sampleWeighted(probs)];
+            actionIndex = poss[recurrent_js_1.Utils.sampleWeighted(probs)];
             this.explored = false;
         }
         return actionIndex;
@@ -92354,7 +92720,7 @@ class TDSolver extends Solver_1.Solver {
                 this.eligibilityTraces[sa] += 1;
             }
             const decay = lambda * this.gamma;
-            const stateUpdate = recurrent_js_1.R.zeros(this.numberOfStates);
+            const stateUpdate = recurrent_js_1.Utils.zeros(this.numberOfStates);
             for (let s = 0; s < this.numberOfStates; s++) {
                 const poss = this.env.allowedActions(s);
                 for (let i = 0; i < poss.length; i++) {
@@ -92377,7 +92743,7 @@ class TDSolver extends Solver_1.Solver {
                 }
             }
             if (this.explored && this.update === 'qlearn') {
-                this.eligibilityTraces = recurrent_js_1.R.zeros(this.numberOfStates * this.numberOfActions);
+                this.eligibilityTraces = recurrent_js_1.Utils.zeros(this.numberOfStates * this.numberOfActions);
             }
         }
         else {
@@ -92416,7 +92782,7 @@ class TDSolver extends Solver_1.Solver {
             const a1 = -1;
             if (this.update === 'sarsa') {
                 const poss = this.env.allowedActions(s1);
-                const a1 = poss[recurrent_js_1.R.randi(0, poss.length)];
+                const a1 = poss[recurrent_js_1.Utils.randi(0, poss.length)];
             }
             this.learnFromTuple(s0, a0, r0, s1, a1, 0);
         }
