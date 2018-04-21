@@ -18,11 +18,10 @@ To run the code on a local machine please follow the listed steps:
 
 ### Pre-Setup
 
-1. Install NodeJS, NPM (ships with NodeJS) & git (if not done yet)
-  - please follow the steps on their respictive website [node, npm](https://www.nodejs.org) & [git](https://git-scm.com/) or in any given Web-Tutorial
-
-2. Install Typescript & Angular CLI as global dependencies
-  - please follow the following steps in your command line (or the steps on their respective websites)
+1. Install NodeJS, NPM (ships with NodeJS) & git (if not done yet)  
+  Please follow the steps on their respective website [node, npm](https://www.nodejs.org) & [git](https://git-scm.com/) or in any given Web-Tutorial
+2. Install Typescript & Angular CLI as global dependencies  
+  Please follow the following steps in your command line (or the steps on their respective websites)
 
 ```
 npm install -g typescript @angular/cli
@@ -38,8 +37,8 @@ git clone https://github.com/mvrahden/learning-agents.git
 
 4. Change into the newly created directory `cd learning-agents`
 5. Install all project related dependencies via `npm install`
-6. Run the code via the Angular CLI `ng serve --open`
-  - this should open a new tab in your configured web browser
+6. Run the code via the Angular CLI `ng serve --open`  
+  This should open a new tab in your configured web browser
 
 ### Update the GitHub Page
 
