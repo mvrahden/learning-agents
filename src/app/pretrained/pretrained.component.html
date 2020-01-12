@@ -13,8 +13,8 @@
       <mat-button-toggle-group class="button-row">
         <button mat-button color="primary" *ngIf="!isPaused" (click)="pause()">Pause</button>
         <button mat-button color="warn" *ngIf="isPaused" (click)="start()">Run</button>
-        <button mat-button matTooltip="Click to reload the brains from GitHub." matTooltipPosition="before" color="warn" *ngIf="!isFullyLoaded" (click)="reload()">Brains didn't load!</button>
-        <button mat-button matTooltip="Click to reload the brains from GitHub." matTooltipPosition="before" color="primary" *ngIf="isFullyLoaded" (click)="reload()">Brains are loaded</button>
+        <button mat-button matTooltip="Click to reload the pretrained DQN from GitHub." matTooltipPosition="before" color="warn" *ngIf="!isFullyLoaded" (click)="reload()">Trained Models didn't load!</button>
+        <button mat-button matTooltip="Click to reload the pretrained DQN from GitHub." matTooltipPosition="before" color="primary" *ngIf="isFullyLoaded" (click)="reload()">Trained Models are loaded</button>
       </mat-button-toggle-group>
     </div>
     <div id="sim-speed-buttons">
