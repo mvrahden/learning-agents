@@ -16,7 +16,7 @@ The content of this Website is for educational purposes only.
 
 Please see the section [Dependencies](#dependencies) for the displayed modules. 
 
-!["UML Diagram"](src/assets/project-uml.svg)
+<img src="src/assets/project-uml.svg" alt="UML Diagram" width="420"/>
 
 ## Local Installation
 
