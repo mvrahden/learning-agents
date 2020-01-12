@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xl="http://www.w3.org/1999/xlink" version="1.1" viewBox="691 -356 1098 1341" width="1098pt" height="1341pt" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <metadata> Produced by OmniGraffle 7.2.2 
+    <dc:date>2018-04-09 12:26:57 +0000</dc:date>
+  </metadata>
+  <defs>
+    <font-face font-family="Helvetica Neue" font-size="22" panose-1="2 0 5 3 0 0 0 2 0 4" units-per-em="1000" underline-position="-100" underline-thickness="50" slope="0" x-height="517" cap-height="714" ascent="951.9958" descent="-212.99744" font-weight="500">
+      <font-face-src>
+        <font-face-name name="HelveticaNeue"/>
+      </font-face-src>
+    </font-face>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="UMLInheritance_Marker" viewBox="-1 -8 14 16" markerWidth="14" markerHeight="16" color="black">
+      <g>
+        <path d="M 12 0 L 0 -7 L 0 7 Z" fill="none" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledDiamond_Marker" viewBox="-16 -7 17 14" markerWidth="17" markerHeight="14" color="black">
+      <g>
+        <path d="M -14.4 0 L -7.2 5.4 L 0 0 L -7.2 -5.4 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledDiamond_Marker_2" viewBox="-1 -7 17 14" markerWidth="17" markerHeight="14" color="black">
+      <g>
+        <path d="M 14.4 0 L 7.2 -5.4 L 0 0 L 7.2 5.4 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="Diamond_Marker" viewBox="-1 -7 17 14" markerWidth="17" markerHeight="14" color="black">
+      <g>
+        <path d="M 14.4 0 L 7.2 -5.4 L 0 0 L 7.2 5.4 Z" fill="none" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="SharpArrow_Marker" viewBox="-7 -7 17 14" markerWidth="17" markerHeight="14" color="black">
+      <g>
+        <path d="M 9 0 L -5.4 -5.4 L 0 0 L 0 0 L -5.4 5.4 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="SharpArrow_Marker_2" viewBox="-10 -7 17 14" markerWidth="17" markerHeight="14" color="black">
+      <g>
+        <path d="M -9 0 L 5.4 5.4 L 0 0 L 0 0 L 5.4 -5.4 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="Diamond_Marker_2" viewBox="-16 -7 17 14" markerWidth="17" markerHeight="14" color="black">
+      <g>
+        <path d="M -14.4 0 L -7.2 5.4 L 0 0 L -7.2 -5.4 Z" fill="none" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+  </defs>
+  <g stroke="none" stroke-opacity="1" stroke-dasharray="none" fill="none" fill-opacity="1">
+    <title>Canvas 1</title>
+    <g>
+      <title>Layer 1</title>
+      <rect x="1137" y="-114" width="642" height="109" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <rect x="715" y="-324" width="1073" height="325" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <path d="M 970.7607 -324 L 714 -324 L 745 -355 L 938.8804 -355 Z" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <text transform="translate(719 -352.808)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="22" font-weight="500" x="46.787354" y="21" textLength="35.838">lear</tspan>
+        <tspan font-family="Helvetica Neue" font-size="22" font-weight="500" x="83.02135" y="21" textLength="116.952">ning-agents</tspan>
+      </text>
+      <rect x="854.5556" y="-68" width="169.44444" height="52" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <text transform="translate(859.5556 -55.308)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="22" font-weight="500" x="8.442222" y="21" textLength="13.442">V</tspan>
+        <tspan font-family="Helvetica Neue" font-size="22" font-weight="500" x="21.488222" y="21" textLength="88.374">iewContr</tspan>
+        <tspan font-family="Helvetica Neue" font-size="22" font-weight="500" x="109.46622" y="21" textLength="41.536">oller</tspan>
+      </text>
+      <rect x="964.2778" y="-207.5" width="175" height="52" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <text transform="translate(969.2778 -208.116)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="22" font-weight="500" x="26.466" y="21" textLength="112.068">Simulation-</tspan>
+        <tspan font-family="Helvetica Neue" font-size="22" font-weight="500" x="24.42" y="47.616" textLength="116.16">Component</tspan>
+      </text>
+      <rect x="753.2778" y="-207.5" width="175" height="52" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <text transform="translate(758.2778 -208.116)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="22" font-weight="500" x="27.698" y="21" textLength="21.582">Pr</tspan>
+        <tspan font-family="Helvetica Neue" font-size="22" font-weight="500" x="48.884" y="21" textLength="88.418">etrained-</tspan>
+        <tspan font-family="Helvetica Neue" font-size="22" font-weight="500" x="24.42" y="47.616" textLength="116.16">Component</tspan>
+      </text>
+      <path d="M 1051.7778 -155.5 L 1051.7778 -96 L 939.7778 -96 L 939.7778 -81.5" marker-end="url(#UMLInheritance_Marker)" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <path d="M 840.7778 -155.5 L 840.7778 -96 L 939.7778 -96" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <path d="M 838.9056 -42 L 693.0635 -42 L 693.0635 108.75 L 963.4513 108.75" marker-start="url(#FilledDiamond_Marker)" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <rect x="714" y="687.25" width="1073" height="297.25" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <path d="M 1487.7564 354.75 L 1487.7564 400.41667 L 1037.9513 400.41667 L 1037.9513 439.5" marker-end="url(#UMLInheritance_Marker)" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <rect x="714" y="425" width="1073" height="208" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <rect x="962.4513" y="453" width="151" height="52" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <text transform="translate(967.4513 465.692)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="22" font-weight="500" x="15.5" y="21" textLength="110">DQNSolver</tspan>
+      </text>
+      <rect x="844.9513" y="563" width="175" height="52" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <text transform="translate(849.9513 575.692)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="22" font-weight="500" x="40.106" y="21" textLength="84.788">DQNOpt</tspan>
+      </text>
+      <rect x="1055.9513" y="563" width="175" height="52" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <text transform="translate(1060.9513 575.692)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="22" font-weight="500" x="40.117" y="21" textLength="84.766">DQNEnv</tspan>
+      </text>
+      <path d="M 932.4513 563 L 932.4513 533 L 1040.7069 533 L 1040.7069 520.65" marker-end="url(#FilledDiamond_Marker_2)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      <path d="M 1143.4513 563 L 1143.4513 533 L 1040.7069 533" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      <path d="M 970.7607 425 L 714 425 L 745 394 L 938.8804 394 Z" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <text transform="translate(719 396.192)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="22" font-weight="500" x="68.38035" y="21" textLength="7.326">r</tspan>
+        <tspan font-family="Helvetica Neue" font-size="22" font-weight="500" x="75.31035" y="21" textLength="55.396">einfor</tspan>
+        <tspan font-family="Helvetica Neue" font-size="22" font-weight="500" x="130.31035" y="21" textLength="48.07">ce-js</tspan>
+      </text>
+      <path d="M 970.7607 687.25 L 714 687.25 L 745 656.25 L 938.8804 656.25 Z" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <text transform="translate(719 658.442)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="22" font-weight="500" x="67.14835" y="21" textLength="7.326">r</tspan>
+        <tspan font-family="Helvetica Neue" font-size="22" font-weight="500" x="74.07835" y="21" textLength="50.512">ecurr</tspan>
+        <tspan font-family="Helvetica Neue" font-size="22" font-weight="500" x="124.19435" y="21" textLength="55.418">ent-js</tspan>
+      </text>
+      <rect x="715" y="54.75" width="1073" height="316" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <path d="M 1028 54.75 L 715 54.75 L 745.5 24.25 L 998.5 24.25 Z" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <text transform="translate(720 26.192)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="22" font-weight="500" x="40.059" y="21" textLength="35.838">lear</tspan>
+        <tspan font-family="Helvetica Neue" font-size="22" font-weight="500" x="76.293" y="21" textLength="186.648">ning-agents-model</tspan>
+      </text>
+      <rect x="963.4513" y="192.75" width="151" height="52" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <text transform="translate(968.4513 205.442)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="22" font-weight="500" x="9.395" y="21" textLength="20.372">W</tspan>
+        <tspan font-family="Helvetica Neue" font-size="22" font-weight="500" x="28.513" y="21" textLength="103.092">orldObject</tspan>
+      </text>
+      <path d="M 851.9513 302.75 L 851.9513 272.75 L 1038.9513 272.75 L 1038.9513 258.25" marker-end="url(#UMLInheritance_Marker)" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <path d="M 1038.9513 302.75 L 1038.9513 280.40472 L 1038.9513 272.75" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <rect x="963.4513" y="82.75" width="151" height="52" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <text transform="translate(968.4513 95.442)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="22" font-weight="500" x="41.999" y="21" textLength="20.372">W</tspan>
+        <tspan font-family="Helvetica Neue" font-size="22" font-weight="500" x="61.117" y="21" textLength="37.884">orld</tspan>
+      </text>
+      <line x1="1038.9513" y1="192.75" x2="1038.9513" y2="150.4" marker-end="url(#Diamond_Marker)" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <path d="M 1225.9513 302.75 L 1225.9513 272.75 L 1038.9513 272.75" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <rect x="776.4513" y="302.75" width="151" height="52" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <text transform="translate(781.4513 315.442)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="22" font-weight="500" x="48.896" y="21" textLength="43.208">Item</tspan>
+      </text>
+      <rect x="963.4513" y="302.75" width="151" height="52" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <text transform="translate(968.4513 315.442)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="22" font-weight="500" x="49.93" y="21" textLength="20.372">W</tspan>
+        <tspan font-family="Helvetica Neue" font-size="22" font-weight="500" x="69.488" y="21" textLength="21.582">all</tspan>
+      </text>
+      <rect x="1150.4513" y="302.75" width="151" height="52" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <text transform="translate(1155.4513 315.442)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="22" font-weight="500" x="27.919" y="21" textLength="85.162">RLAgent</tspan>
+      </text>
+      <rect x="1412.2564" y="225.75" width="151" height="52" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <text transform="translate(1417.2564 238.442)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="22" font-weight="500" x="30.372" y="21" textLength="80.256">Sensory</tspan>
+      </text>
+      <rect x="1412.2564" y="302.75" width="151" height="52" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <text transform="translate(1417.2564 315.442)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="22" font-weight="500" x="20.791" y="21" textLength="99.418">DQNBrain</tspan>
+      </text>
+      <line x1="1412.2564" y1="328.75" x2="1317.1013" y2="328.75" marker-end="url(#FilledDiamond_Marker_2)" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <path d="M 1412.2564 251.75 L 1331.8901 251.75 L 1331.8901 328.75" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <rect x="1616.7564" y="225.75" width="151" height="52" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <text transform="translate(1621.7564 238.442)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="22" font-weight="500" x="35.872" y="21" textLength="69.256">Sensor</tspan>
+      </text>
+      <line x1="1616.7564" y1="251.75" x2="1578.9064" y2="251.75" marker-end="url(#Diamond_Marker)" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <rect x="1616.7564" y="302.75" width="151" height="52" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <text transform="translate(1621.7564 315.442)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="22" font-weight="500" x=".815" y="21" textLength="139.37">SensedObject</tspan>
+      </text>
+      <line x1="1692.2564" y1="293.4" x2="1692.2564" y2="302.75" marker-start="url(#FilledDiamond_Marker)" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <rect x="1150.4513" y="192.75" width="151" height="52" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <text transform="translate(1155.4513 205.442)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="22" font-weight="500" x="4.5" y="21" textLength="132">AgentFactory</tspan>
+      </text>
+      <line x1="1250" y1="244.75" x2="1250" y2="291.85" marker-end="url(#SharpArrow_Marker)" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <rect x="776.4513" y="192.75" width="151" height="52" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <text transform="translate(781.4513 205.442)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="22" font-weight="500" x="11.826" y="21" textLength="117.348">ItemFactory</tspan>
+      </text>
+      <path d="M 851.9513 192.75 L 851.9513 161.2206 L 1039.2353 161.2206" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <path d="M 1225.9513 192.75 L 1225.9513 161.22059 L 1038.5 161.2206" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <line x1="826.9026" y1="244.75" x2="826.9026" y2="291.85" marker-end="url(#SharpArrow_Marker)" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <rect x="1386.2778" y="-207.5" width="175" height="52" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <text transform="translate(1391.2778 -208.116)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="22" font-weight="500" x="54.175" y="21" textLength="56.65">DQN-</tspan>
+        <tspan font-family="Helvetica Neue" font-size="22" font-weight="500" x="24.42" y="47.616" textLength="116.16">Component</tspan>
+      </text>
+      <rect x="1597.2778" y="-207.5" width="175" height="52" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <text transform="translate(1602.2778 -208.116)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="22" font-weight="500" x="48.675" y="21" textLength="67.65">About-</tspan>
+        <tspan font-family="Helvetica Neue" font-size="22" font-weight="500" x="24.42" y="47.616" textLength="116.16">Component</tspan>
+      </text>
+      <rect x="753.2778" y="-288.5" width="1019" height="52" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <text transform="translate(758.2778 -275.808)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="22" font-weight="500" x="447.443" y="21" textLength="114.114">AppModule</tspan>
+      </text>
+      <path d="M 946.8013 479 L 693.0635 479 L 693.0635 744.4167 L 963.8183 744.4167" marker-start="url(#FilledDiamond_Marker)" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <rect x="1175.2778" y="-207.5" width="175" height="52" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <text transform="translate(1180.2778 -208.116)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="22" font-weight="500" x="20.57" y="21" textLength="123.86">Explanation-</tspan>
+        <tspan font-family="Helvetica Neue" font-size="22" font-weight="500" x="24.42" y="47.616" textLength="116.16">Component</tspan>
+      </text>
+      <line x1="840.7778" y1="-218.4" x2="840.7778" y2="-236.5" marker-start="url(#SharpArrow_Marker_2)" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <line x1="1051.7778" y1="-218.4" x2="1051.7778" y2="-236.5" marker-start="url(#SharpArrow_Marker_2)" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <line x1="1262.7778" y1="-218.4" x2="1262.7778" y2="-236.5" marker-start="url(#SharpArrow_Marker_2)" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <line x1="1473.7778" y1="-218.4" x2="1473.7778" y2="-236.5" marker-start="url(#SharpArrow_Marker_2)" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <line x1="1684.7778" y1="-218.4" x2="1684.7778" y2="-236.5" marker-start="url(#SharpArrow_Marker_2)" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <rect x="963.8183" y="718.4167" width="175" height="52" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <text transform="translate(968.8183 731.1087)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="22" font-weight="500" x="65.186" y="21" textLength="34.628">Net</tspan>
+      </text>
+      <rect x="963.4513" y="825.1667" width="175" height="52" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <text transform="translate(968.4513 837.8587)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="22" font-weight="500" x="63.547" y="21" textLength="37.906">Mat</tspan>
+      </text>
+      <rect x="963.4513" y="918.4167" width="175" height="52" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <text transform="translate(968.4513 931.1087)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="22" font-weight="500" x="37.466" y="21" textLength="90.068">RandMat</tspan>
+      </text>
+      <rect x="1174.4513" y="825.1667" width="175" height="52" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <text transform="translate(1179.4513 837.8587)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="22" font-weight="500" x="51.942" y="21" textLength="61.116">Graph</tspan>
+      </text>
+      <line x1="1050.9513" y1="918.4167" x2="1050.9513" y2="890.6667" marker-end="url(#UMLInheritance_Marker)" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <line x1="1174.4513" y1="851.1667" x2="1149.3513" y2="851.1667" marker-end="url(#SharpArrow_Marker)" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <line x1="1051.1751" y1="786.0666" x2="1051.0407" y2="825.1667" marker-start="url(#FilledDiamond_Marker)" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <path d="M 1261.9513 825.1667 L 1261.9513 802.5305 L 1051.1983 802.5305" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <rect x="752.4513" y="825.1667" width="175" height="52" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <text transform="translate(757.4513 837.8587)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="22" font-weight="500" x="60.709" y="21" textLength="43.582">Utils</tspan>
+      </text>
+      <line x1="963.4513" y1="851.1667" x2="938.3513" y2="851.1667" marker-end="url(#SharpArrow_Marker)" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <rect x="1175.2778" y="-68" width="88.72222" height="52" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <text transform="translate(1180.2778 -55.308)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="22" font-weight="500" x="13.896111" y="21" textLength="50.93">Stats</tspan>
+      </text>
+      <line x1="1039.65" y1="-42" x2="1175.2778" y2="-42" marker-start="url(#Diamond_Marker_2)" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <rect x="1282" y="-68" width="88.72222" height="52" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <text transform="translate(1287 -55.308)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="22" font-weight="500" x="12.268111" y="21" textLength="54.186">Chart</tspan>
+      </text>
+      <rect x="1388.7222" y="-68" width="88.72222" height="52" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <text transform="translate(1393.7222 -55.308)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="22" font-weight="500" x="2.489111" y="21" textLength="73.744">Canvas</tspan>
+      </text>
+      <rect x="1495.4444" y="-68" width="88.72222" height="52" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <text transform="translate(1500.4444 -55.308)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="22" font-weight="500" x="8.396111" y="21" textLength="61.93">Specs</tspan>
+      </text>
+      <path d="M 1433.0833 -68 L 1433.0833 -84.6554 L 1160.9715 -84.65541 L 1160.9715 -41.08488" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <line x1="1326.3611" y1="-68" x2="1326.3611" y2="-84.6554" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <path d="M 1098 -139.85 L 1098 -96 L 1533.7607 -96 L 1533.7607 -68 L 1533.7607 -68" marker-start="url(#Diamond_Marker_2)" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <path d="M 1278 -114 L 1137 -114 L 1154.0236 -139 L 1260.4929 -139 Z" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <text transform="translate(1142 -139.808)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="22" font-weight="500" x="45.535" y="21" textLength="39.93">utils</tspan>
+      </text>
+      <rect x="1453" y="117.375" width="151" height="52" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <text transform="translate(1458 130.067)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="22" font-weight="500" x="45.849" y="21" textLength="49.302">Lidar</tspan>
+      </text>
+      <rect x="1616.7564" y="117.375" width="151" height="52" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <text transform="translate(1621.7564 130.067)" fill="black">
+        <tspan font-family="Helvetica Neue" font-size="22" font-weight="500" x="40.965" y="21" textLength="59.07">Radar</tspan>
+      </text>
+      <line x1="1692.2564" y1="169.375" x2="1692.2564" y2="212.25" marker-end="url(#UMLInheritance_Marker)" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+      <path d="M 1528.5 169.375 L 1528.5 192.75 L 1692.2565 192.75" stroke="black" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
+    </g>
+  </g>
+</svg>

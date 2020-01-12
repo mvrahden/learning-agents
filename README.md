@@ -12,6 +12,12 @@ You'll find multiple pages, each with different content.
 
 The content of this Website is for educational purposes only.
 
+## Overview of the System as UML
+
+Please see the section [Dependencies](#dependencies) for the displayed modules. 
+
+!["UML Diagram"](src/assets/project-uml.svg)
+
 ## Local Installation
 
 To run the code on a local machine please follow the listed steps:
